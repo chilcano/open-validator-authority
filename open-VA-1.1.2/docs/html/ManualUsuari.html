@@ -1,0 +1,351 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Open-VA 1.1</title><meta name="generator" content="DocBook XSL Stylesheets V1.70.1"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="book" lang="CA-es"><div class="titlepage"><div><div><h1 class="title"><a name="d0e1"></a>Open-VA 1.1</h1></div></div><hr></div><div class="toc"><p><b>Sumari</b></p><dl><dt><span class="chapter"><a href="#d0e5">1. Introducci&oacute;</a></span></dt><dd><dl><dt><span class="sect1"><a href="#d0e12">Caracter&iacute;stiques principals</a></span></dt><dt><span class="sect1"><a href="#d0e46">Sobre aquest manual d'usuari</a></span></dt></dl></dd><dt><span class="chapter"><a href="#d0e73">2. Instal&middot;laci&oacute;</a></span></dt><dd><dl><dt><span class="sect1"><a href="#d0e78">Requeriments d'instal&middot;laci&oacute;</a></span></dt><dd><dl><dt><span class="sect2"><a href="#d0e81">Requeriments de plataforma</a></span></dt><dt><span class="sect2"><a href="#d0e92">Components requerits</a></span></dt></dl></dd><dt><span class="sect1"><a href="#d0e311">Instal&middot;lant Open-VA</a></span></dt><dd><dl><dt><span class="sect2"><a href="#d0e319">Preparant eines</a></span></dt><dt><span class="sect2"><a href="#d0e646">Construint Open-VA</a></span></dt><dt><span class="sect2"><a href="#d0e677">Desplegant Open-VA</a></span></dt><dt><span class="sect2"><a href="#d0e728">Verificant Open-VA</a></span></dt></dl></dd></dl></dd><dt><span class="chapter"><a href="#d0e739">3. Usant Open-VA</a></span></dt><dd><dl><dt><span class="sect1"><a href="#d0e760">Comen&ccedil;ant</a></span></dt><dt><span class="sect1"><a href="#d0e819">Protocol d'operacions Open-VA</a></span></dt></dl></dd></dl></div><div class="chapter" lang="CA-es"><div class="titlepage"><div><div><h2 class="title"><a name="d0e5"></a>Cap&iacute;tol 1. Introducci&oacute;</h2></div></div></div><div class="toc"><p><b>Sumari</b></p><dl><dt><span class="sect1"><a href="#d0e12">Caracter&iacute;stiques principals</a></span></dt><dt><span class="sect1"><a href="#d0e46">Sobre aquest manual d'usuari</a></span></dt></dl></div><p>
+            Benvingut al manual d'usuari d'Open-VA 1.1.
+        </p><p>
+            Aquest document explica com instal&middot;lar, configurar i usar Open-VA.
+        </p><div class="sect1" lang="CA-es"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d0e12"></a>Caracter&iacute;stiques principals</h2></div></div></div><p>
+                Open-VA &eacute;s un codi obert que demostra com implementar un sistema per a validar certificats
+                digitals i documents signats.
+            </p><p>
+                Pot usar i estendre'l com desitgi.                
+                
+                </p><div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Warning"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Av&iacute;s]" src="images/warning.gif"></td><th align="left">Av&iacute;s</th></tr><tr><td align="left" valign="top"><p>
+                        Si fa servir Open-VA, o la distribueix, li agrair&iacute;em que inclogu&eacute;s el logo <span class="emphasis"><em>powered by Open-VA</em></span> (veure m&eacute;s avall).
+                        Pot trobar aquest logo (<code class="filename">open-VA.gif</code>) en el seu directori d'instal&middot;laci&oacute; d'Open-VA.
+                        (Veure <span class="emphasis"><em>document llic&egrave;ncia</em></span> per les condicions d'us)
+                    </p><p>
+                        </p><div align="center"><img src="images/open-VA.gif" align="middle"></div><p>
+                    </p></td></tr></table></div><p>
+            </p><p>
+                Open-VA usa un <span class="emphasis"><em>WebService</em></span> com a frontal i un protocol molt simple com a transport.
+            </p><p>
+                Pot usar Open-VA per obtenir l'arxiu <code class="filename">WSDL</code> i construir
+                els seus propis clients Open-VA. 
+            </p></div><div class="sect1" lang="CA-es"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d0e46"></a>Sobre aquest manual d'usuari</h2></div></div></div><p>
+                Aquest manual li dona una visi&oacute; complerta d'Open-VA.
+                Explica com instal&middot;lar, configurar i usar Open-VA i assumeix que est&agrave; familiaritzat amb el seu sistema operatiu
+                i conceptes relacionats amb servidors d'aplicacions, servidors de bases de dades i servidors ldap.
+            </p><p>
+                El manual d'usuari d'Open-VA est&agrave; format per:
+                </p><div class="itemizedlist"><ul type="disc"><li><p>
+                            <span class="emphasis"><em>Cap&iacute;tol 1 - Introducci&oacute;</em></span>: Ho est&agrave; llegint.
+                        </p></li><li><p>
+                            <span class="emphasis"><em>Cap&iacute;tol 2 - Instal&middot;laci&oacute;</em></span>: Defineix requeriments de plataforma
+                            i com preparar els components requerits abans de construir i instal&middot;lar Open-VA.
+                        </p></li><li><p>
+                            <span class="emphasis"><em>Cap&iacute;tol 3 - Usant Open-VA</em></span>: Describeix el protocol Open-VA
+                            i com usar-ho.
+                        </p></li></ul></div><p>
+            </p></div></div><div class="chapter" lang="CA-es"><div class="titlepage"><div><div><h2 class="title"><a name="d0e73"></a>Cap&iacute;tol 2. Instal&middot;laci&oacute;</h2></div></div></div><div class="toc"><p><b>Sumari</b></p><dl><dt><span class="sect1"><a href="#d0e78">Requeriments d'instal&middot;laci&oacute;</a></span></dt><dd><dl><dt><span class="sect2"><a href="#d0e81">Requeriments de plataforma</a></span></dt><dt><span class="sect2"><a href="#d0e92">Components requerits</a></span></dt></dl></dd><dt><span class="sect1"><a href="#d0e311">Instal&middot;lant Open-VA</a></span></dt><dd><dl><dt><span class="sect2"><a href="#d0e319">Preparant eines</a></span></dt><dt><span class="sect2"><a href="#d0e646">Construint Open-VA</a></span></dt><dt><span class="sect2"><a href="#d0e677">Desplegant Open-VA</a></span></dt><dt><span class="sect2"><a href="#d0e728">Verificant Open-VA</a></span></dt></dl></dd></dl></div><p>
+            Aquest cap&iacute;tol explica requeriments de sistema i plataforma i procediments d'instal&middot;laci&oacute;. Tamb&eacute; proveeix
+            instruccions per a obtenir els components requerits.
+        </p><div class="sect1" lang="CA-es"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d0e78"></a>Requeriments d'instal&middot;laci&oacute;</h2></div></div></div><div class="sect2" lang="CA-es"><div class="titlepage"><div><div><h3 class="title"><a name="d0e81"></a>Requeriments de plataforma</h3></div></div></div><p>
+                    Open-VA &eacute;s una aplicaci&oacute; <span class="emphasis"><em>multiplataforma</em></span> que <span class="emphasis"><em>no requereix</em></span>
+                    res en especial de la seva plataforma.
+                </p></div><div class="sect2" lang="CA-es"><div class="titlepage"><div><div><h3 class="title"><a name="d0e92"></a>Components requerits</h3></div></div></div><p>
+                    Els components requerits per Open-VA (no subministrats) son:
+                    </p><div class="itemizedlist"><ul type="disc"><li><p>Java Software Development Kit (<span class="emphasis"><em>JSDK</em></span>)</p></li><li><p>Java Enterprise Edition Application Server (<span class="emphasis"><em>servidor JEE</em></span>)</p></li><li><p>Lighweight Directory Access Protocol server (<span class="emphasis"><em>servidor LDAP</em></span>)</p></li><li><p>Database server</p></li></ul></div><p>
+                    
+                </p><div class="sect3" lang="CA-es"><div class="titlepage"><div><div><h4 class="title"><a name="d0e120"></a>Requeriment JSDK</h4></div></div></div><p>
+                        Es necessita una JSDK versi&oacute; 1.4. Els arxius de pol&iacute;tica de seguretat sense restricci&oacute; han d'estar instal&middot;lats
+                        i BouncyCastle ha d'estar registrat com un prove&iuml;dor de seguretat.
+                    </p><p>
+                        Hauria d'assegurar que el seu sistema t&eacute; una variable d'entorn anomenada <code class="envar">JAVA_HOME</code>
+                        la qual ha esta definida amb el directori d'instal&middot;laci&oacute; del seu JSDK.
+                    </p><p>
+                        </p><div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Warning"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Av&iacute;s]" src="images/warning.gif"></td><th align="left">Av&iacute;s</th></tr><tr><td align="left" valign="top"><p>
+                                Aquesta versi&oacute; no funciona amb altra versi&oacute; diferent a la 1.4.
+                            </p></td></tr></table></div><p>
+                    </p><div class="sect4" lang="CA-es"><div class="titlepage"><div><div><h5 class="title"><a name="d0e136"></a>Instal&middot;lant la versi&oacute; JSDK 1.4 de SUN</h5></div></div></div><p>
+                            Pot descarregar-la des de <a href="http://java.sun.com/j2se/1.4.2/download.html" target="_top">SUN download website</a>.
+                        </p><p>
+                            Despr&eacute;s de la instal&middot;laci&oacute; recordi definir la variable d'entorn <code class="envar">JAVA_HOME</code> tal i com
+                            s'ha explicat a la secci&oacute; anterior.
+                        </p></div><div class="sect4" lang="CA-es"><div class="titlepage"><div><div><h5 class="title"><a name="d0e149"></a>Instal&middot;lant els Arxius de Pol&iacute;tica sense Restricci&oacute;</h5></div></div></div><p>
+                            Per defecte la desc&agrave;rrega de JSDK inclou arxius de pol&iacute;tica restringits, els quals no permeten
+                            l'us de claus de gran longitud. Per permetre claus de qualsevol longitud ha d'instal&middot;lar els arxius
+                            de pol&iacute;tica sense restricci&oacute;.
+                        </p><p>
+                            Descarregui'ls des de <a href="http://java.sun.com/j2se/1.4.2/download.html#docs" target="_top">JCE download website</a>
+                            i segueixi les instruccions.
+                        </p></div><div class="sect4" lang="CA-es"><div class="titlepage"><div><div><h5 class="title"><a name="d0e159"></a>Registrant BouncyCastle</h5></div></div></div><p>
+                            Open-VA requereix BouncyCastle com a provee&iuml;dor de seguretat. Per poder fer-ho ha de seguir els seg&uuml;ents punts:
+                            </p><div class="orderedlist"><ol type="1"><li><p>
+                                        Descarregar i instal&middot;lar les llibreries BouncyCastle
+                                    </p></li><li><p>
+                                        Registrar BouncyCastle com un provee&iuml;dor de seguretat
+                                    </p></li></ol></div><p>
+                        </p><p>
+                            Pot descarregar les llibreries BouncyCastle (<code class="filename">bcprov.jar</code> and <code class="filename">bcmail.jar</code>)
+                            des de <a href="http://www.bouncycastle.org/latest_releases.html" target="_top">BouncyCastle download website</a>. Un cop fet
+                            cop&iacute;&iuml; ambdos arxius a la carpeta <code class="filename">jre/lib/ext</code> sota el directori d'instal&middot;laci&oacute; del seu JSDK.
+                        </p><p>
+                            Un cop feta la desc&agrave;rrega i instalaci&oacute; ha de registrar BouncyCastle com un provee&iuml;dor de seguretat editant
+                            l'arxiu de seguretat del seu JSDK. Aquest arxiu &eacute;s <code class="filename">java.security</code> i el pot trobar
+                            a la carpeta <code class="filename">jre/lib/security</code> sota el directori d'instal&middot;laci&oacute; del seu JSDK.
+                        </p><div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Warning"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Av&iacute;s]" src="images/warning.gif"></td><th align="left">Av&iacute;s</th></tr><tr><td align="left" valign="top"><p>
+                                SUN  ha de ser el primer provee&iuml;dor i BouncyCastle el segon. Cerqui les entrades <span class="property">security.provider</span>
+                                y editi-les como segueix: 
+                                </p><pre class="programlisting">
+                                    
+...altres entrades ...
+                                
+security.provider.1=sun.security.provider.Sun
+security.provider.2=org.bouncycastle.jce.provider.BouncyCastleProvider
+security.provider.3=com.sun.net.ssl.internal.ssl.Provider
+security.provider.4=com.sun.rsajca.Provider
+security.provider.5=com.sun.crypto.provider.SunJCE
+security.provider.6=sun.security.jgss.SunProvider
+                                
+... altres entrades ...
+                                
+                                </pre><p>
+                            </p></td></tr></table></div></div></div><div class="sect3" lang="CA-es"><div class="titlepage"><div><div><h4 class="title"><a name="d0e203"></a>Requeriment servidor JEE</h4></div></div></div><p>
+                        Es requereix un servidor compatible con JEE 1.4.
+                    </p><p>
+                        Amb aquest entrega d'Open-VA es fa servir un servidor d'aplicacions <span class="application">JBoss</span>.
+                        Si desitja un altre, haur&agrave; de subministrar els descriptors vost&egrave; mateix.
+                    </p><div class="sect4" lang="CA-es"><div class="titlepage"><div><div><h5 class="title"><a name="d0e213"></a>Instal&middot;lant el servidor <span class="application">JBoss</span></h5></div></div></div><p>
+                            Pot descarregar un servidor <span class="application">JBoss</span> (4.02 o major recomanat) des de
+                            <a href="http://labs.jboss.com/portal/jbossas/download/index.html" target="_top">JBoss download website</a>.
+                        </p></div></div><div class="sect3" lang="CA-es"><div class="titlepage"><div><div><h4 class="title"><a name="d0e226"></a>Requeriment servidor LDAP</h4></div></div></div><p>
+                        No es requireix cap servidor LDAP en especial.
+                    </p><div class="sect4" lang="CA-es"><div class="titlepage"><div><div><h5 class="title"><a name="d0e231"></a>Instal&middot;lant <span class="application">OpenLDAP</span></h5></div></div></div><p>
+                            Si no disposa de cap servidor LDAP pot usar <span class="application">OpenLDAP</span>.
+                            Aquest servidor pot ser descarregat des de<a href="http://www.openldap.org/software/download/" target="_top">OpenLDAP download website</a>
+                        </p><p>
+                            Un cop descarregat i instal&middot;lat ha de configurar el domini i les credencials.
+                            Aix&ograve; es pot fer editant el seu arxiu de configuraci&oacute; (<code class="filename">slapd.conf</code>) el qual es
+                            troba en el directori d'instal&middot;laci&oacute; d'<span class="application">OpenLDAP</span>.
+                        </p><p>
+                            Editar <code class="varname">suffix</code> per les dades del domini i <code class="varname">rootdn</code> y <code class="varname">rootpw</code>
+                            per les dades d'usuari.
+                        </p><p>
+                            Exemple de configuraci&oacute; establint el domini <span class="emphasis"><em>Open-VA.org</em></span> i <span class="emphasis"><em>admin</em></span>
+                            com nom d'usuari administrador i <span class="emphasis"><em>adminpwd</em></span> como la seva constrasenya:
+                            </p><pre class="programlisting">
+                                
+... altres entrades ...
+                                
+suffix		"dc=Open-VA,dc=org"
+rootdn		"cn=admin,dc=Open-VA,dc=org"
+rootpw		adminpwd
+                                
+... altres entrades ...
+                                
+                            </pre><p>
+                            </p><div class="important" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Important"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Important]" src="images/important.gif"></td><th align="left">Important</th></tr><tr><td align="left" valign="top"><p>Recordi usar <span class="emphasis"><em>noms distingits</em></span> per a descriure
+                                objectes LDAP.</p></td></tr></table></div><p>
+                        </p></div></div><div class="sect3" lang="CA-es"><div class="titlepage"><div><div><h4 class="title"><a name="d0e284"></a>Requeriment servidor base de dades</h4></div></div></div><p>
+                        No es requireix cap servidor de base de dades en especial.
+                    </p><div class="sect4" lang="CA-es"><div class="titlepage"><div><div><h5 class="title"><a name="d0e289"></a>Instal&middot;lant el servidor MySQL</h5></div></div></div><p>
+                            Si no disposa de cap servidor de base de dades, pot usar MySQL.. Aquest servidor pot ser
+                            descarregat des de <a href="http://dev.mysql.com/downloads/mysql/4.1.html" target="_top">MySQL download website</a>.
+                        </p><p>
+                            Per accedir al servidor MySQL des d'una aplicaci&oacute; Java ha de descarregar el conector per a Java.
+                            Aquest arxiu pot ser descarregat des de
+                            <a href="http://dev.mysql.com/downloads/connector/j/3.1.html" target="_top">MySQL connector website</a>.
+                            Aquest conector ha d'estar en el classpath de l'aplicaci&oacute; com es descriu m&eacute;s avall
+                            (<span class="emphasis"><em>Preparant JBoss</em></span>).
+                        </p><p>
+                            </p><div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Warning"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Av&iacute;s]" src="images/warning.gif"></td><th align="left">Av&iacute;s</th></tr><tr><td align="left" valign="top"><p>En el momento d'aquest document el connector Java per a MySQL es troba encara en desenvolupament.
+                                    Degut a aix&ograve; no intenti instal&middot;lar la darrera entrega del servidor MySQL i instal&middot;li la versi&oacute; 4.  
+                                </p></td></tr></table></div><p>
+                        </p></div></div></div></div><div class="sect1" lang="CA-es"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d0e311"></a>Instal&middot;lant Open-VA</h2></div></div></div><p>
+                Abans d'instal&middot;lar <span class="application">Open-VA</span> ha de construir i preparar les eines
+                requerides anteriorment.
+            </p><div class="sect2" lang="CA-es"><div class="titlepage"><div><div><h3 class="title"><a name="d0e319"></a>Preparant eines</h3></div></div></div><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Nota]" src="images/note.gif"></td><th align="left">Nota</th></tr><tr><td align="left" valign="top"><p>
+                        Alguns arxius per a les eines es troben a la carpeta <code class="filename">resources</code>
+                        en el directori d'instal&middot;laci&oacute; d'<span class="application">Open-VA</span>.
+                    </p></td></tr></table></div><div class="sect3" lang="CA-es"><div class="titlepage"><div><div><h4 class="title"><a name="d0e331"></a>Preparant LDAP</h4></div></div></div><p>
+                        Afegir esquemes <span class="emphasis"><em>java</em></span> i <span class="emphasis"><em>user</em></span> a la instal&middot;laci&oacute;
+                        per defecte.
+                    </p><p>
+                        Per fer-ho ha de copiar <code class="filename">user.schema</code>, que es troba a <code class="filename">resources</code>,
+                        a la carpeta <code class="filename">schemas</code> d'<span class="application">OpenLDAP</span>.
+                    </p><p>
+                        Un cop fet registri els esquemes a <span class="application">OpenLDAP</span> editant el seu arxiu de configuraci&oacute; <code class="filename">slapd.conf</code>
+                        
+                        </p><pre class="programlisting">
+                            
+... altres entrades ...
+                            
+include		./schema/java.schema
+include		./schema/user.schema
+                            
+... altres entrades  ...
+                            
+                        </pre><p>
+                    </p><p>
+                        LDAP es fa servir per a emmagatzemar certificats acceptats per a que l'aplicaci&oacute; pugui con&egrave;ixer la ruta de validaci&oacute;
+                        i l'estat de revocaci&oacute;.
+                    </p><p>
+                        Ha d'emmagatzemar-ho com segueix:
+                    </p><p>
+                        </p><div class="itemizedlist"><ul type="disc"><li><p>
+                                    Crear una <span class="emphasis"><em>organization (entityClass = o)</em></span> nom&eacute;s per agrupar certificats. 
+                                </p></li><li><p>
+                                    Emmagatzemi els seus certificats en <span class="emphasis"><em>organizational units (entityClass = ou)</em></span> del tipus
+                                    <span class="emphasis"><em>pkiCA</em></span> y amb un atribut binari anomenat <span class="emphasis"><em>caCertificate</em></span>
+                                    el valor del qual sigui el certificat.
+                                </p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Nota]" src="images/note.gif"></td><th align="left">Nota</th></tr><tr><td align="left" valign="top"><p>
+                                        Es recomana, tot i que no &eacute;s obligatori, respectar la jerarquia de certificats en una manera llegible.
+                                    </p></td></tr></table></div><p>
+                                    Un exemple d'entrada CA:
+                                    </p><div class="screenshot"><div align="center"><img src="images/ldap-ca.gif" align="middle"></div></div><p>
+                                </p></li><li><p>
+                                    Cada CA guarda informaci&oacute; de revocaci&oacute;. Aquesta informaci&oacute; inclou m&egrave;todes <span class="emphasis"><em>CRL</em></span>
+                                    i <span class="emphasis"><em>OCSP</em></span> de revocaci&oacute;. Per cada CA diversos m&egrave;todes es poden configurar
+                                    donant a cadascun una prioritat. Per crl nom&eacute;s la url complerta &eacute;s necess&agrave;ria. En  el cas d'ocsp a m&eacute;s
+                                    el certificat ha de ser incl&ograve;s per a poder validar la resposta del servidor.
+                                </p><p>
+                                    Un exemple d'entrada crl:
+                                    </p><div class="screenshot"><div align="center"><img src="images/ldap-crl.gif" align="middle"></div></div><p>
+                                </p><p>
+                                    Un exemple d'entrada ocsp:
+                                    </p><div class="screenshot"><div align="center"><img src="images/ldap-ocsp.gif" align="middle"></div></div><p>
+                                </p></li></ul></div><p>
+                    </p></div><div class="sect3" lang="CA-es"><div class="titlepage"><div><div><h4 class="title"><a name="d0e420"></a>Preparant el servidor de base de dades</h4></div></div></div><p>
+                        Ha de crear un esquema de  base de dades per usar amb <span class="application">Open-VA</span>.  A <code class="filename">resources</code>
+                        pot trobar un gui&oacute; <code class="filename">sql</code> amb instruccions per crear i omplir les taules.
+                    </p><p>
+                        Hem creat per a vost&eacute; dos guions pels m&eacute;s popular servidors de base de dades: <span class="application">MySQL</span>
+                        i <span class="application">Oracle</span>.
+                    </p><p>
+                        En aquest gui&oacute; s'assumeix un esquema amb nom <span class="emphasis"><em>EPSILON</em></span>.
+                        Pot canviar-lo per&ograve; no oblidi actualitzar el gui&oacute;.
+                    </p></div><div class="sect3" lang="CA-es"><div class="titlepage"><div><div><h4 class="title"><a name="d0e447"></a>Preparant JBoss</h4></div></div></div><p>
+                        </p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Nota]" src="images/note.gif"></td><th align="left">Nota</th></tr><tr><td align="left" valign="top"><div class="itemizedlist"><ul type="disc"><li><p>
+                                        Hauria de definir la variable d'entorn <code class="envar">JBOSS_HOME</code> amb el valor del directori d'instal&middot;laci&oacute;
+                                        de <span class="application">JBoss</span> si desitja desplegar <span class="application">Open-VA</span> autom&agrave;ticament.
+                                    </p></li><li><p>
+                                        Assumim que farem servir el servidor default.
+                                    </p></li><li><p>
+                                        Cop&iacute;&iuml; els controladors o connectors pel seu servidor de base de dades (no subministrats)
+                                        a la carpeta <code class="filename">lib</code>
+                                    </p></li></ul></div></td></tr></table></div><p>
+                        </p><div class="caution" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Caution"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Atenci&oacute;]" src="images/caution.gif"></td><th align="left">Atenci&oacute;</th></tr><tr><td align="left" valign="top"><p>
+                                Necessita un arxiu de certificat en format <code class="filename">.pfx</code> o <code class="filename">.p12</code>,
+                                el qual no s'inclou perqu&egrave; depend de la seva organitzaci&oacute;.
+                                Aquest arxiu s'ha de copiar a la carpeta <code class="filename">conf</code> del servidor default de <span class="application">JBoss</span>.
+                            </p></td></tr></table></div><p>
+                    </p><p>
+                        A <code class="filename">resources</code> t&eacute; alguns arxius que ha copiar a les carpetes de <span class="application">JBoss</span>.
+                        Abans de copiar-los ha d'editar algunes propietats amb els seus propis valors:
+
+                        </p><div class="itemizedlist"><ul type="disc"><li><p>Arxius que s'han de copiar a la carpeta <code class="filename">conf</code></p><p>
+                                    </p><div class="itemizedlist"><ul type="circle"><li><p><code class="filename">KeyStoreConfiguration.properties</code></p><p>No editar</p></li><li><p><code class="filename">ValidationConfiguration.properties</code></p><p>No editar</p></li><li><p><code class="filename">LDAPLoginConfiguration.properties</code></p><p>
+                                                </p><div class="informaltable"><table border="1"><colgroup><col><col></colgroup><thead><tr><th>Nom de propietat</th><th>Descripci&oacute; de propietat</th></tr></thead><tbody><tr><td>providerURL</td><td>La direcci&oacute; del seu servidor LDAP</td></tr><tr><td>principal</td><td>Un nom d'usuari amb drets de consulta en el su servidor LDAP</td></tr><tr><td>credentials</td><td>La contrasenya</td></tr></tbody></table></div><p>
+                                            </p></li><li><p><code class="filename">pkiva.webservices.properties</code></p><p>
+                                                </p><div class="informaltable"><table border="1"><colgroup><col><col></colgroup><thead><tr><th>Nom de propietat</th><th>Descripci&oacute; de propietat</th></tr></thead><tbody><tr><td>signature.ks</td><td>El seu arxiu <code class="filename">.pfx</code> o <code class="filename">.p12</code></td></tr><tr><td>signature.ks.password</td><td>Contrasenya del seu arxiu de certificats</td></tr><tr><td>signature.alias.name</td><td>Nom d'usuari del certificat de signatura de respostes</td></tr><tr><td>signature.alias.password</td><td>Constraenya de l'usuari del certificat de signatura de respostes</td></tr></tbody></table></div><p>
+                                            </p></li></ul></div><p>
+                                </p></li><li><p>Arxius que s'han de copiar a la carpeta <code class="filename">deploy</code></p><p>
+                                    </p><div class="itemizedlist"><ul type="circle"><li><p><code class="filename">open-VA-XXX-db-ds.xml</code></p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Nota]" src="images/note.gif"></td><th align="left">Nota</th></tr><tr><td align="left" valign="top"><p>
+                                                    Esculleixi XXX entre mysql o oracle, en funci&oacute; del seu servidor de base de dades. Si te qualsevol altre
+                                                    servidor haur&agrave; de crear el seu propi connector.
+                                                </p></td></tr></table></div><p>
+                                                Aquest arxiu configura una <span class="emphasis"><em>font de dades (datasource)</em></span> per la base de dades a usar en
+                                                <span class="application">Open-VA</span>. Ha de respectar l'entrada <span class="emphasis"><em>JNDI name</em></span> (<span class="emphasis"><em>EPSILON</em></span>)
+                                                i editar la propietat <span class="emphasis"><em>JDBC</em></span> amb el valor correcte pel seu sistema.
+                                            </p></li><li><p><code class="filename">open-VA-crl_ra-ds.xml</code></p><p>No editar</p></li><li><p><code class="filename">open-VA-ldap_ra-ds.xml</code></p><p>No editar</p></li><li><p><code class="filename">open-VA-ocsp_ra-ds.xml</code></p><p>No editar</p></li></ul></div><p>
+                                </p></li></ul></div><p>
+                    </p></div></div><div class="sect2" lang="CA-es"><div class="titlepage"><div><div><h3 class="title"><a name="d0e646"></a>Construint Open-VA</h3></div></div></div><p>
+                    Trobar&agrave; un gui&oacute; per a construir <span class="application">Open-VA</span>.
+                    El seu nom &eacute;s <code class="filename">build.cmd</code> per sistemes <span class="application">Windows</span>
+                    i <code class="filename">build.sh</code> per sistemes <span class="application">UNIX</span>.
+                </p><p>
+                    Un cop executat aquest gui&oacute; <span class="application">Open-VA</span> estar&agrave; constru&iuml;da com una <span class="emphasis"><em>aplicaci&oacute; JEE</em></span>
+                    amb nom <span class="application">open-VA.ear</span>.                    
+                </p></div><div class="sect2" lang="CA-es"><div class="titlepage"><div><div><h3 class="title"><a name="d0e677"></a>Desplegant Open-VA</h3></div></div></div><p>
+                    Si el servidor <span class="application">JBoss</span> est&aacute; aturat, arr&agrave;nquil.
+                </p><p>
+                    Si ha definit la variable d'entorn <code class="envar">JBOSS_HOME</code> pot executar <span><strong class="command">build deploy</strong></span>
+                    i <span class="application">Open-VA</span> ser&agrave; autom&agrave;ticament desplegada.
+                    Si no ha definit aquesta variable d'entorn haur&agrave; de copiar manualment l'arxiu <code class="filename">open-VA.ear</code>.
+                    que ha estat creat a la carpeta <code class="filename">dist</code> de la seva instal&middot;laci&oacute; <span class="application">Open-VA</span>, a la
+                    carpeta <code class="filename">deploy</code> de <span class="application">JBoss</span>. Si est&agrave; usando <span class="emphasis"><em>default</em></span>
+                    ser&agrave;: <code class="filename">server/default/deploy</code>.
+                </p><p>
+                    Un cop desplegat pot comprovar en el log del servidor (<code class="filename">log/server.log)</code> que l'arxiu per a l'aplicaci&oacute;
+                    <span class="application">Open-VA</span> (<code class="filename">open-VA.ear</code>) ha estat desplegat i arrencat.
+                </p></div><div class="sect2" lang="CA-es"><div class="titlepage"><div><div><h3 class="title"><a name="d0e728"></a>Verificant Open-VA</h3></div></div></div><p>
+                    Despr&eacute;s de desplegar i arrencar <span class="application">Open-VA</span> pot verificar
+                    que l'aplicaci&oacute; est&agrave; funcionant invocant la serva plana principal tal i com es mostra a la figura:
+                    </p><div class="screenshot"><div align="center"><img src="images/home.gif" align="middle"></div></div><p>
+                </p></div></div></div><div class="chapter" lang="CA-es"><div class="titlepage"><div><div><h2 class="title"><a name="d0e739"></a>Cap&iacute;tol 3. Usant Open-VA</h2></div></div></div><div class="toc"><p><b>Sumari</b></p><dl><dt><span class="sect1"><a href="#d0e760">Comen&ccedil;ant</a></span></dt><dt><span class="sect1"><a href="#d0e819">Protocol d'operacions Open-VA</a></span></dt></dl></div><p>
+            <span class="application">Open-VA</span> &eacute;s un codi obert que demostra com validar certificats digitals
+            i documents signats.
+        </p><p>
+            </p><div class="screenshot"><div align="center"><img src="images/diagram.gif" align="middle"></div></div><p>
+        </p><p>
+            Com pot veure en el diagrama anterior <span class="application">Open-VA</span> t&eacute; un <span class="emphasis"><em>WebService</em></span>
+            com a frontal. Aquest accepta peticions, les processa i retorna una resposta.
+        </p><div class="sect1" lang="CA-es"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d0e760"></a>Comen&ccedil;ant</h2></div></div></div><p>
+                Ha de construir un client <span class="emphasis"><em>webservice</em></span> per poder operar contra <span class="application">Open-VA</span>.
+                Per a fer-ho necessita el descriptor de servei (<span class="emphasis"><em>WSDL</em></span>).
+                No t&eacute; perqu&egrave; escriure'l manualment. Pot ser obtingut invocant <span><strong class="command">Open-VA/ValidateWS?wsdl</strong></span>
+                en el servidor.
+            </p><p>
+                En aquesta entrega d'<span class="application">Open-VA</span> nom&eacute;s un m&eacute;tode est&agrave; disponible: <span><strong class="command">validate</strong></span>.
+            </p><p>
+                Aquesta operaci&oacute; accepta un <span class="emphasis"><em>document XML</em></span> amb la petici&oacute; i retorna
+                un altre <code class="filename">xml</code> amb la resposta.
+            </p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Nota]" src="images/note.gif"></td><th align="left">Nota</th></tr><tr><td align="left" valign="top"><p>
+                    Open-VA retorna la resposta signada. Primer calcula la signatura per a la resposta i despr&egrave;s afegeix
+                    a la resposta un nou camp amb nom <code class="varname">signature</code>.
+                </p></td></tr></table></div><p>
+                Els <code class="filename">dtd</code> per aquests <code class="filename">xml</code> son:
+                </p><div class="itemizedlist"><ul type="disc"><li><p>petici&oacute;</p><pre class="programlisting">
+                            
+&lt;!DOCTYPE request [&lt;!ELEMENT request (elementId,elementContent,?)&gt;
+&lt;!ELEMENT elementId (#PCDATA)&gt;
+&lt;!ELEMENT elementContent (certificate|signedDoc|(signature,doc))&gt;
+&lt;!ELEMENT certificate (#PCDATA)&gt;
+&lt;!ELEMENT signedDoc (#PCDATA)&gt;
+&lt;!ELEMENT signature (#PCDATA)&gt;
+&lt;!ELEMENT doc (#PCDATA)&gt;]&gt;
+                        
+                        </pre></li><li><p>resposta</p><pre class="programlisting">
+                            
+&lt;!DOCTYPE response [
+&lt;!ELEMENT response (value, codeError?, status, statusReason?, signature)&gt;
+&lt;!ELEMENT value (#PCDATA)&gt;
+&lt;!ELEMENT codeError (#PCDATA)&gt;
+&lt;!ELEMENT status (#PCDATA)&gt;
+&lt;!ELEMENT statusReason (#PCDATA) ?&gt;
+&lt;!ELEMENT signature (#PCDATA)&gt;]&gt;
+                        
+                        </pre></li></ul></div><p>
+            </p></div><div class="sect1" lang="CA-es"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d0e819"></a>Protocol d'operacions Open-VA</h2></div></div></div><p>
+                Ha de crear un <code class="filename">xml</code> en la petici&oacute; i analitzar la resposta
+                un cop invocada l'operaci&oacute; <span><strong class="command">validate</strong></span>, segons el <code class="filename">dtd</code>
+                a la secci&oacute; anterior.
+                
+                </p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Nota]" src="images/note.gif"></td><th align="left">Nota</th></tr><tr><td align="left" valign="top"><p>
+                        Les dades bin&agrave;ries com certificats, signatures o documents es passen en format 
+                        <span class="emphasis"><em>base 64</em></span>.
+                    </p></td></tr></table></div><p>
+                
+            </p><p>
+                Es dona suport a tres tipus de peticions:
+                </p><div class="itemizedlist"><ul type="disc"><li><p>Validaci&oacute; de certificats</p><p>Ha d'informar el camp <span><strong class="command">certficate</strong></span></p></li><li><p>Documents signats amb signatura no adjunta</p><p>Ha d'informar els camps <span><strong class="command">signature</strong></span> i <span><strong class="command">doc</strong></span></p></li><li><p>Documents signats amb signatura adjunta</p><p>Ha d'informar el camp <span><strong class="command">signedDoc</strong></span></p></li></ul></div><p>
+            </p><p>
+                La resposta pot ser una mica confusa perqu&egrave; hi ha dos codis de resposta.
+                </p><div class="itemizedlist"><ul type="disc"><li><p><code class="varname">value</code></p><p>Indica que el document est&agrave; ben format i pot ser processat.</p><p>
+                            Els seus valors poden ser: <span class="emphasis"><em>Refused</em></span>, <span class="emphasis"><em>Failure</em></span> o <span class="emphasis"><em>Success</em></span>
+                        </p><p>
+                            Ha de parar atenci&oacute; perqu&egrave; <span class="emphasis"><em>Success</em></span> no significa que la validaci&oacute; &eacute;s correcta.
+                            Nom&eacute;s significa que la petici&oacute; ha estat acceptada per a ser processada.
+                        </p><p>
+                            En el caso de <span class="emphasis"><em>Refused</em></span> o <span class="emphasis"><em>Failure</em></span> el camp
+                            <span class="emphasis"><em>codeError</em></span> d&oacute;na m&eacute;s informaci&oacute;.
+                        </p></li><li><p><code class="varname">status</code></p><p>
+                            Els seus valors poden ser: <span class="emphasis"><em>Valid</em></span> o <span class="emphasis"><em>Invalid</em></span>
+                        </p><p>
+                            Un valor de <span class="emphasis"><em>Valid</em></span> indica que la validaci&oacute; ha estat correcte.
+                        </p><p>
+                            En el caso d'una validaci&oacute; incorrecte el camp <span class="emphasis"><em>statusReason</em></span> d&oacute;na m&eacute;s informaci&oacute;.
+                        </p></li></ul></div><p>
+                
+            </p></div></div></div></body></html>

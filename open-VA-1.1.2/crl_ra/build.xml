@@ -1,0 +1,72 @@
+<!--
+	Script file for CRL resource adaptor generation
+	===============================================
+-->
+<project name="clrra" default="build" basedir=".">
+	
+	<!-- Project variables -->
+	<property name="src.dir" value="${basedir}/src"/>
+	<property name="lib.dir" value="${basedir}/lib"/>
+	<property name="bin.dir" value="${basedir}/bin"/>
+	<property name="dist.dir" value="${basedir}/dist"/>
+	<property name="tmp.dir" value="${basedir}/tmp"/>
+	
+	<path id="classpath">
+		<pathelement location="${src.dir}"/>
+		<fileset dir="${system.lib.dir}">
+			<include name="jboss-j2ee.jar"/>
+		</fileset>
+		<fileset dir="${common.dir}/dist">
+			<include name="common.jar"/>
+		</fileset>
+		<fileset dir="${common.dir}/lib">
+			<include name="*.jar"/>
+		</fileset>
+		<fileset dir="${lib.dir}">
+			<include name="*.jar"/>
+		</fileset>
+	</path>
+			
+	<!--
+		CRL Resource Adapter tasks
+	-->
+	<target name="prepare">
+		<mkdir dir="${bin.dir}"/>
+		<mkdir dir="${dist.dir}"/>
+	</target>
+		
+	<target name="clean">
+		<delete dir="${bin.dir}"/>
+		<delete dir="${dist.dir}"/>
+	</target>
+		
+	<target name="compile" depends="clean,prepare">
+		<javac
+			source="1.4"
+			debug="true"
+			srcdir="${src.dir}"
+			destdir="${bin.dir}"
+			includes="**/*.java"
+			classpathref="classpath"/>
+		<jar destfile="${bin.dir}/crlra.jar" basedir="${bin.dir}"/>
+	</target>
+	
+	<target name="build" depends="clean,prepare,compile">
+		<mkdir dir="${tmp.dir}"/>
+		<copy todir="${tmp.dir}">
+			<fileset dir="${bin.dir}">
+				<include name="crlra.jar"/>
+			</fileset>
+		</copy>
+		<jar destfile="${dist.dir}/crlra.rar" basedir="${tmp.dir}">
+			<metainf dir="${src.dir}/META-INF"/>
+			<manifest>
+				<attribute
+					name="Class-Path"
+					value="APP-INF/lib/commons-logging.jar"/>
+			</manifest>
+		</jar>
+		<delete dir="${tmp.dir}"/>
+	</target>
+	
+</project>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://webservices.pkiva" xmlns:impl="http://webservices.pkiva" xmlns:intf="http://webservices.pkiva" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+
+   <wsdl:message name="validateResponse">
+
+      <wsdl:part name="return" type="xsd:string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="validateRequest">
+
+      <wsdl:part name="xmlData" type="xsd:string"/>
+
+   </wsdl:message>
+
+   <wsdl:portType name="ValidateWS">
+
+      <wsdl:operation name="validate" parameterOrder="xmlData">
+
+         <wsdl:input name="validateRequest" message="impl:validateRequest"/>
+
+         <wsdl:output name="validateResponse" message="impl:validateResponse"/>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="ValidateWSSoapBinding" type="impl:ValidateWS">
+
+      <wsdlsoap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="validate">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="validateRequest">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://webservices.pkiva"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="validateResponse">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://webservices.pkiva"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="ValidateWSService">
+
+      <wsdl:port name="ValidateWS" binding="impl:ValidateWSSoapBinding">
+
+         <wsdlsoap:address location="http://localhost:8080/ws4ee/services/ValidateWS"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

@@ -1,0 +1,163 @@
+<!--
+	Script file for open-VA generation
+	==================================
+-->
+<project name="open-VA" default="all" basedir=".">
+	
+	<!-- System environment -->
+	<property environment="env"/>
+	
+	<!-- Looks for a JBoss server installation -->
+	<available file="${env.JBOSS_HOME}/bin/run.jar" property="jboss.available"/>
+	<property name="jboss.dir" value="${env.JBOSS_HOME}"/>
+	
+	
+	<!-- Global variables -->
+	<property name="system.lib.dir" value="${basedir}/lib"/>
+	<property name="common.dir" value="${basedir}/common"/>
+	<property name="crlra.dir" value="${basedir}/crl_ra"/>
+	<property name="ldapra.dir" value="${basedir}/ldap_ra"/>
+	<property name="ocspra.dir" value="${basedir}/ocsp_ra"/>
+	<property name="vaws.dir" value="${basedir}/va_ws"/>
+	<property name="vaejb.dir" value="${basedir}/va_ejb"/>
+	
+	<!-- Local variables -->
+	<property name="earfile" value="${ant.project.name}.ear"/>
+	<property name="tmp.dir" value="${basedir}/tmp"/>
+	<property name="src.dir" value="${basedir}/src"/>
+	<property name="dist.dir" value="${basedir}/dist"/>
+
+	
+	<!--
+		Generation tasks
+	-->
+	
+	<target name="common">
+		<ant antfile="${common.dir}/build.xml" target="build" inheritall="false">
+			<property name="system.lib.dir" value="${system.lib.dir}"/>
+			<property name="common.dir" value="${common.dir}"/>
+		</ant>
+	</target>
+	
+	<target name="crlra" depends="common">
+		<ant antfile="${crlra.dir}/build.xml" target="build" inheritall="false">
+			<property name="system.lib.dir" value="${system.lib.dir}"/>
+			<property name="common.dir" value="${common.dir}"/>
+		</ant>
+	</target>
+	
+	<target name="ldapra" depends="common">
+		<ant antfile="${ldapra.dir}/build.xml" target="build" inheritall="false">
+			<property name="system.lib.dir" value="${system.lib.dir}"/>
+			<property name="common.dir" value="${common.dir}"/>
+		</ant>
+	</target>
+	
+	<target name="ocspra" depends="common">
+		<ant antfile="${ocspra.dir}/build.xml" target="build" inheritall="false">
+			<property name="system.lib.dir" value="${system.lib.dir}"/>
+			<property name="common.dir" value="${common.dir}"/>
+		</ant>
+	</target>
+
+	<target name="vaejb" depends="common">
+		<ant antfile="${vaejb.dir}/build.xml" target="build" inheritall="false">
+			<property name="system.lib.dir" value="${system.lib.dir}"/>
+			<property name="common.dir" value="${common.dir}"/>
+		</ant>
+	</target>
+	
+	<target name="vaws" depends="common,vaejb">
+		<ant antfile="${vaws.dir}/build.xml" target="build" inheritall="false">
+			<property name="system.lib.dir" value="${system.lib.dir}"/>
+			<property name="common.dir" value="${common.dir}"/>
+			<property name="vaejb.dir" value="${vaejb.dir}"/>
+		</ant>
+	</target>
+
+	<!-- Main task -->
+	<target name="all" depends="common,crlra,ldapra,ocspra,vaejb,vaws">
+		<mkdir dir="${tmp.dir}"/>
+		<mkdir dir="${dist.dir}"/>
+		<delete>
+			<fileset dir="${dist.dir}">
+				<include name="**/*.*"/>
+			</fileset>
+		</delete>
+		<copy todir="${tmp.dir}">
+			<fileset dir="${crlra.dir}/dist">
+				<include name="crlra.rar"/>
+			</fileset>
+			<fileset dir="${ldapra.dir}/dist">
+				<include name="ldapra.rar"/>
+			</fileset>
+			<fileset dir="${ocspra.dir}/dist">
+				<include name="ocspra.rar"/>
+			</fileset>
+			<fileset dir="${vaejb.dir}/dist">
+				<include name="vaejb.jar"/>
+			</fileset>
+			<fileset dir="${vaws.dir}/dist">
+				<include name="vaws.war"/>
+			</fileset>
+		</copy>
+		<mkdir dir="${tmp.dir}/APP-INF/lib"/>
+		<copy todir="${tmp.dir}/APP-INF/lib">
+			<fileset dir="${common.dir}/dist">
+				<filename name="*.jar"/>
+			</fileset>
+			<fileset dir="${common.dir}/lib">
+				<filename name="*.jar"/>
+			</fileset>
+			<fileset dir="${crlra.dir}/lib">
+				<filename name="*.jar"/>
+			</fileset>
+			<fileset dir="${ldapra.dir}/lib">
+				<filename name="*.jar"/>
+			</fileset>
+			<fileset dir="${ocspra.dir}/lib">
+				<filename name="*.jar"/>
+			</fileset>
+			<fileset dir="${vaejb.dir}/lib">
+				<filename name="*.jar"/>
+			</fileset>
+			<fileset dir="${vaws.dir}/lib">
+				<filename name="*.jar"/>
+			</fileset>
+		</copy>
+		<delete>
+			<fileset dir="${tmp.dir}/APP-INF/lib">
+				<filename name="bc*.jar"/>
+			</fileset>
+		</delete>
+		<ear destfile="${dist.dir}/${earfile}" appxml="${src.dir}/META-INF/application.xml" basedir="${tmp.dir}">
+			<metainf dir="${src.dir}/META-INF"/>
+		</ear>
+		<delete dir="${tmp.dir}"/>
+	</target>
+
+	<!-- Deploy on JBoss (if it does exist -->
+	<target name="deploy" if="jboss.available">
+		<copy todir="${jboss.dir}/server/default/deploy">
+			<fileset dir="${dist.dir}">
+				<include name="${earfile}"/>
+			</fileset>
+		</copy>
+	</target>	
+	
+	<!-- Clean task -->
+	<target name="clean">
+		<delete>
+			<fileset dir="${basedir}">
+				<include name="bin/*.*"/>
+				<include name="dist/*.*"/>
+			</fileset>
+		</delete>
+		<ant antfile="${common.dir}/build.xml" target="clean" inheritall="false"/>
+		<ant antfile="${crlra.dir}/build.xml" target="clean" inheritall="false"/>
+		<ant antfile="${ldapra.dir}/build.xml" target="clean" inheritall="false"/>
+		<ant antfile="${ocspra.dir}/build.xml" target="clean" inheritall="false"/>
+		<ant antfile="${vaejb.dir}/build.xml" target="clean" inheritall="false"/>
+		<ant antfile="${vaws.dir}/build.xml" target="clean" inheritall="false"/>
+	</target>
+</project>

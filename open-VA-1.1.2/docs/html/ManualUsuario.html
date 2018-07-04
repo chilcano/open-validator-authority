@@ -1,0 +1,351 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Open-VA 1.1</title><meta name="generator" content="DocBook XSL Stylesheets V1.70.1"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="book" lang="es"><div class="titlepage"><div><div><h1 class="title"><a name="d0e1"></a>Open-VA 1.1</h1></div></div><hr></div><div class="toc"><p><b>Tabla de contenidos</b></p><dl><dt><span class="chapter"><a href="#d0e5">1. Introducci&oacute;n</a></span></dt><dd><dl><dt><span class="sect1"><a href="#d0e12">Caracter&iacute;sticas principales</a></span></dt><dt><span class="sect1"><a href="#d0e46">Acerca de este manual de usuario</a></span></dt></dl></dd><dt><span class="chapter"><a href="#d0e73">2. Instalaci&oacute;n</a></span></dt><dd><dl><dt><span class="sect1"><a href="#d0e78">Requerimientos de instalaci&oacute;n</a></span></dt><dd><dl><dt><span class="sect2"><a href="#d0e81">Requerimientos de plataforma</a></span></dt><dt><span class="sect2"><a href="#d0e92">Componentes requeridos</a></span></dt></dl></dd><dt><span class="sect1"><a href="#d0e311">Instalando Open-VA</a></span></dt><dd><dl><dt><span class="sect2"><a href="#d0e319">Preparando herramientas</a></span></dt><dt><span class="sect2"><a href="#d0e646">Construyendo Open-VA</a></span></dt><dt><span class="sect2"><a href="#d0e677">Desplegando Open-VA</a></span></dt><dt><span class="sect2"><a href="#d0e728">Verificando Open-VA</a></span></dt></dl></dd></dl></dd><dt><span class="chapter"><a href="#d0e739">3. Usando Open-VA</a></span></dt><dd><dl><dt><span class="sect1"><a href="#d0e760">Comenzando</a></span></dt><dt><span class="sect1"><a href="#d0e819">Protocolo de operaciones Open-VA</a></span></dt></dl></dd></dl></div><div class="chapter" lang="es"><div class="titlepage"><div><div><h2 class="title"><a name="d0e5"></a>Cap&iacute;tulo 1. Introducci&oacute;n</h2></div></div></div><div class="toc"><p><b>Tabla de contenidos</b></p><dl><dt><span class="sect1"><a href="#d0e12">Caracter&iacute;sticas principales</a></span></dt><dt><span class="sect1"><a href="#d0e46">Acerca de este manual de usuario</a></span></dt></dl></div><p>
+            Bienvenido al manual de usuario de Open-VA 1.1.
+        </p><p>
+            Este documento explica c&oacute;mo instalar, configurar y usar Open-VA.
+        </p><div class="sect1" lang="es"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d0e12"></a>Caracter&iacute;sticas principales</h2></div></div></div><p>
+                Open-VA es un c&oacute;digo abierto que demuestra c&oacute;mo implementar un sistema para validar certificados
+                digitales y documentos firmados.
+            </p><p>
+                Puede usarlo y extenderlo como desee.                
+                
+                </p><div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Warning"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Aviso]" src="images/warning.gif"></td><th align="left">Aviso</th></tr><tr><td align="left" valign="top"><p>
+                        Si usa Open-VA, o la distribuye, le agradecer&iacute;amos que incluyera el logo <span class="emphasis"><em>powered by Open-VA</em></span> (ver m&aacute;s abajo).
+                        Puede encontrar este logo (<code class="filename">open-VA.gif</code>) en su directorio de instalaci&oacute;n de Open-VA.
+                        (Ver <span class="emphasis"><em>documento licencia</em></span> para las condiciones de uso)
+                    </p><p>
+                        </p><div align="center"><img src="images/open-VA.gif" align="middle"></div><p>
+                    </p></td></tr></table></div><p>
+            </p><p>
+                Open-VA usa un <span class="emphasis"><em>WebService</em></span> como frontal y un protocolo muy simple como transporte.
+            </p><p>
+                Puede usar Open-VA para obtener el archivo <code class="filename">WSDL</code> y construir
+                sus propios clientes Open-VA. 
+            </p></div><div class="sect1" lang="es"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d0e46"></a>Acerca de este manual de usuario</h2></div></div></div><p>
+                Este manual le da una visi&oacute;n completa de Open-VA.
+                Explica c&oacute;mo instalar, configurar y usar Open-VA y asume que est&aacute; familiarizado con su sistema operativo
+                y conceptos relacionados con servidores de aplicaciones, servidores de bases de datos y servidores ldap.
+            </p><p>
+                El manual de usuario de Open-VA est&aacute; formado por:
+                </p><div class="itemizedlist"><ul type="disc"><li><p>
+                            <span class="emphasis"><em>Cap&iacute;tulo 1 - Introducci&oacute;n</em></span>: Lo est&aacute; leyendo
+                        </p></li><li><p>
+                            <span class="emphasis"><em>Cap&iacute;tulo 2 - Instalaci&oacute;n</em></span>: Define requerimientos de plataforma
+                            y c&oacute;mo preparar los componentes requeridos antes de construir e instalar Open-VA.
+                        </p></li><li><p>
+                            <span class="emphasis"><em>Cap&iacute;tulo 3 - Usando Open-VA</em></span>: Describe el protocolo Open-VA
+                            y c&oacute;mo usarlo.
+                        </p></li></ul></div><p>
+            </p></div></div><div class="chapter" lang="es"><div class="titlepage"><div><div><h2 class="title"><a name="d0e73"></a>Cap&iacute;tulo 2. Instalaci&oacute;n</h2></div></div></div><div class="toc"><p><b>Tabla de contenidos</b></p><dl><dt><span class="sect1"><a href="#d0e78">Requerimientos de instalaci&oacute;n</a></span></dt><dd><dl><dt><span class="sect2"><a href="#d0e81">Requerimientos de plataforma</a></span></dt><dt><span class="sect2"><a href="#d0e92">Componentes requeridos</a></span></dt></dl></dd><dt><span class="sect1"><a href="#d0e311">Instalando Open-VA</a></span></dt><dd><dl><dt><span class="sect2"><a href="#d0e319">Preparando herramientas</a></span></dt><dt><span class="sect2"><a href="#d0e646">Construyendo Open-VA</a></span></dt><dt><span class="sect2"><a href="#d0e677">Desplegando Open-VA</a></span></dt><dt><span class="sect2"><a href="#d0e728">Verificando Open-VA</a></span></dt></dl></dd></dl></div><p>
+            Este cap&iacute;tulo explilca requerimientos de sistema y plataforma y procedimientos de instalaci&oacute;n. Tambi&eacute;n provee
+            instrucciones para obtener los componentes requeridos.
+        </p><div class="sect1" lang="es"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d0e78"></a>Requerimientos de instalaci&oacute;n</h2></div></div></div><div class="sect2" lang="es"><div class="titlepage"><div><div><h3 class="title"><a name="d0e81"></a>Requerimientos de plataforma</h3></div></div></div><p>
+                    Open-VA es una aplicaci&oacute;n <span class="emphasis"><em>multiplataforma</em></span> que <span class="emphasis"><em>no requiere</em></span>
+                    nada en especial de su plataforma.
+                </p></div><div class="sect2" lang="es"><div class="titlepage"><div><div><h3 class="title"><a name="d0e92"></a>Componentes requeridos</h3></div></div></div><p>
+                    Los componentes requeridos por Open-VA (no suministrados) son:
+                    </p><div class="itemizedlist"><ul type="disc"><li><p>Java Software Development Kit (<span class="emphasis"><em>JSDK</em></span>)</p></li><li><p>Java Enterprise Edition Application Server (<span class="emphasis"><em>servidor JEE</em></span>)</p></li><li><p>Lighweight Directory Access Protocol server (<span class="emphasis"><em>servidor LDAP</em></span>)</p></li><li><p>Database server</p></li></ul></div><p>
+                    
+                </p><div class="sect3" lang="es"><div class="titlepage"><div><div><h4 class="title"><a name="d0e120"></a>Requerimiento JSDK</h4></div></div></div><p>
+                        Se necesita una JSDK versi&oacute;n 1.4. Los archivos de pol&iacute;tica de seguridad sin restricci&oacute;n deben estar instalados
+                        y BouncyCastle debe estar registrado como un proveedor de seguridad.
+                    </p><p>
+                        Debe asegurar que su sistema tiene una variable de entorno llamada <code class="envar">JAVA_HOME</code>
+                        que ha sido definido con el directorio de instalaci&oacute;n de su JSDK.
+                    </p><p>
+                        </p><div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Warning"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Aviso]" src="images/warning.gif"></td><th align="left">Aviso</th></tr><tr><td align="left" valign="top"><p>
+                                Esta versi&oacute;n no funciona con otra versi&oacute;n diferente a la 1.4.
+                            </p></td></tr></table></div><p>
+                    </p><div class="sect4" lang="es"><div class="titlepage"><div><div><h5 class="title"><a name="d0e136"></a>Instalando la versi&oacute;n JSDK 1.4 de SUN</h5></div></div></div><p>
+                            Puede descargarla desde <a href="http://java.sun.com/j2se/1.4.2/download.html" target="_top">SUN download website</a>.
+                        </p><p>
+                            Despu&eacute;s de la instalaci&oacute;n recuerde definir la variable de entorno <code class="envar">JAVA_HOME</code> tal y como 
+                            ya se ha explicado en la secci&oacute;n anterior.
+                        </p></div><div class="sect4" lang="es"><div class="titlepage"><div><div><h5 class="title"><a name="d0e149"></a>Instalando los Archivos de Pol&iacute;tica sin Restricci&oacute;n</h5></div></div></div><p>
+                            Por defecto la descarga de JSDK incluye archivos de pol&iacute;tica restringidos, los cuales no permiten
+                            el uso de claves de gran longitud. Para permitir claves de cualquier longitud debe instalar los archivos
+                            de pol&iacute;tica sin restricci&oacute;n.
+                        </p><p>
+                            Desc&aacute;rguelos desde <a href="http://java.sun.com/j2se/1.4.2/download.html#docs" target="_top">JCE download website</a>
+                            y siga las instrucciones.
+                        </p></div><div class="sect4" lang="es"><div class="titlepage"><div><div><h5 class="title"><a name="d0e159"></a>Registrando BouncyCastle</h5></div></div></div><p>
+                            Open-VA requiere BouncyCastle como proveedor de seguridad. Para poder hacerlo debe seguir estos pasos:
+                            </p><div class="orderedlist"><ol type="1"><li><p>
+                                        Descargar e instalar las librer&iacute;as BouncyCastle
+                                    </p></li><li><p>
+                                        Registrar BouncyCastle com un proveedor de seguridad
+                                    </p></li></ol></div><p>
+                        </p><p>
+                            Puede descargar las librer&iacute;as BouncyCastle (<code class="filename">bcprov.jar</code> and <code class="filename">bcmail.jar</code>)
+                            desde <a href="http://www.bouncycastle.org/latest_releases.html" target="_top">BouncyCastle download website</a>. Tras ello
+                            copie ambos archivos en la carpeta <code class="filename">jre/lib/ext</code> bajo el directorio de instalaci&oacute;n de su JSDK.
+                        </p><p>
+                            Tras la descarga e instalaci&oacute;n debe registrar BouncyCastle como un proveedor de seguridad editando
+                            el archivo de seguridad de su JSDK. Este archivo es <code class="filename">java.security</code> y lo puede encontrar
+                            en la carpeta <code class="filename">jre/lib/security</code> bajo el directorio de instalaci&oacute;n de JSDK.
+                        </p><div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Warning"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Aviso]" src="images/warning.gif"></td><th align="left">Aviso</th></tr><tr><td align="left" valign="top"><p>
+                                SUN  debe ser el primer proveedor y BouncyCastle el segundo. Busque las entradas <span class="property">security.provider</span>
+                                y ed&iacute;telas como sigue: 
+                                </p><pre class="programlisting">
+                                    
+... otras entradas ...
+                                
+security.provider.1=sun.security.provider.Sun
+security.provider.2=org.bouncycastle.jce.provider.BouncyCastleProvider
+security.provider.3=com.sun.net.ssl.internal.ssl.Provider
+security.provider.4=com.sun.rsajca.Provider
+security.provider.5=com.sun.crypto.provider.SunJCE
+security.provider.6=sun.security.jgss.SunProvider
+                                
+... otras entradas ...
+                                
+                                </pre><p>
+                            </p></td></tr></table></div></div></div><div class="sect3" lang="es"><div class="titlepage"><div><div><h4 class="title"><a name="d0e203"></a>Requerimiento servidor JEE</h4></div></div></div><p>
+                        Es requerido un servidor compatible con JEE 1.4.
+                    </p><p>
+                        Con esta entrega de Open-VA se usa un servidor de aplicaciones <span class="application">JBoss</span>.
+                        Si usted desea usar otro, deber&aacute; suministrar los descriptores usted mismo.
+                    </p><div class="sect4" lang="es"><div class="titlepage"><div><div><h5 class="title"><a name="d0e213"></a>Instalando el servidor <span class="application">JBoss</span></h5></div></div></div><p>
+                            Puede descargar un servidor <span class="application">JBoss</span> (4.02 o mayor recomendado) desde
+                            <a href="http://labs.jboss.com/portal/jbossas/download/index.html" target="_top">JBoss download website</a>.
+                        </p></div></div><div class="sect3" lang="es"><div class="titlepage"><div><div><h4 class="title"><a name="d0e226"></a>Requerimiento servidor LDAP</h4></div></div></div><p>
+                        No se requiere ning&uacute;n servidor LDAP en especial.
+                    </p><div class="sect4" lang="es"><div class="titlepage"><div><div><h5 class="title"><a name="d0e231"></a>Instalando <span class="application">OpenLDAP</span></h5></div></div></div><p>
+                            Si  no dispone de ning&uacute;n servidor LDAP puede usar <span class="application">OpenLDAP</span>.
+                            Este servidor puede ser descargado desde<a href="http://www.openldap.org/software/download/" target="_top">OpenLDAP download website</a>
+                        </p><p>
+                            Tras la descarga e instalaci&oacute;n debe configurar el dominio y las credenciales.
+                            Esto puede realizarse editando su archivo de configuraci&oacute;n (<code class="filename">slapd.conf</code>) el cual se
+                            encuentra en el directorio de instalaci&oacute;n de <span class="application">OpenLDAP</span>.
+                        </p><p>
+                            Editar <code class="varname">suffix</code> para los datos del dominio y <code class="varname">rootdn</code> y <code class="varname">rootpw</code>
+                            para los datos de usuario.
+                        </p><p>
+                            Ejemplo de configuraci&oacute;n estableciendo el dominio <span class="emphasis"><em>Open-VA.org</em></span> y <span class="emphasis"><em>admin</em></span>
+                            como nombre de usuario administrador y <span class="emphasis"><em>adminpwd</em></span> como su constrase&ntilde;a:
+                            </p><pre class="programlisting">
+                                
+... otras entradas ...
+                                
+suffix		"dc=Open-VA,dc=org"
+rootdn		"cn=admin,dc=Open-VA,dc=org"
+rootpw		adminpwd
+                                
+... otras entradas ...
+                                
+                            </pre><p>
+                            </p><div class="important" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Important"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Importante]" src="images/important.gif"></td><th align="left">Importante</th></tr><tr><td align="left" valign="top"><p>Recuerde usar <span class="emphasis"><em>nombres distinguidos</em></span> para describir
+                                objetos LDAP.</p></td></tr></table></div><p>
+                        </p></div></div><div class="sect3" lang="es"><div class="titlepage"><div><div><h4 class="title"><a name="d0e284"></a>Requerimiento servidor base de datos</h4></div></div></div><p>
+                        No se requiere ning&uacute;n servidor de base de datos en especial.
+                    </p><div class="sect4" lang="es"><div class="titlepage"><div><div><h5 class="title"><a name="d0e289"></a>Instalando el servidor MySQL</h5></div></div></div><p>
+                            Si no dispone de ning&uacute;n servidor de base de datos, puede usar MySQL.. Este servidor puede ser
+                            descargado desde <a href="http://dev.mysql.com/downloads/mysql/4.1.html" target="_top">MySQL download website</a>.
+                        </p><p>
+                            Para acceder al servidor MySQL desde una aplicaci&oacute;n Java debe descargar el conector para Java.
+                            Este archivo puede ser descargado desde
+                            <a href="http://dev.mysql.com/downloads/connector/j/3.1.html" target="_top">MySQL connector website</a>.
+                            Este conector tiene que estar en el classpath de la aplicaci&oacute;n como se describe m&aacute;s abajo
+                            (<span class="emphasis"><em>Preparando JBoss</em></span>).
+                        </p><p>
+                            </p><div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Warning"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Aviso]" src="images/warning.gif"></td><th align="left">Aviso</th></tr><tr><td align="left" valign="top"><p>En el momento de este documento el conector Java para MySQL se encuentra todav&iacute;a en desarrollo.
+                                    Debido a esto no intente instalar la &uacute;tilma entrega del servidor MySQL e instale la versi&oacute;n 4.  
+                                    </p></td></tr></table></div><p>
+                        </p></div></div></div></div><div class="sect1" lang="es"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d0e311"></a>Instalando Open-VA</h2></div></div></div><p>
+                Antes de instalar <span class="application">Open-VA</span> debe construir y preparar las herramientas
+                requeridas anteriormente.
+            </p><div class="sect2" lang="es"><div class="titlepage"><div><div><h3 class="title"><a name="d0e319"></a>Preparando herramientas</h3></div></div></div><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Nota]" src="images/note.gif"></td><th align="left">Nota</th></tr><tr><td align="left" valign="top"><p>
+                        Algunos archivos para las herramientas se encuentran en la carpeta <code class="filename">resources</code>
+                        en el directorio de instalaci&oacute;n de <span class="application">Open-VA</span>.
+                    </p></td></tr></table></div><div class="sect3" lang="es"><div class="titlepage"><div><div><h4 class="title"><a name="d0e331"></a>Preparando LDAP</h4></div></div></div><p>
+                        A&ntilde;adir esquemas <span class="emphasis"><em>java</em></span> y <span class="emphasis"><em>user</em></span> a la instalaci&oacute;n
+                        por defecto.
+                    </p><p>
+                        Para hacerlo debe copiar <code class="filename">user.schema</code>, que se encuentra en <code class="filename">resources</code>,
+                        en la carpeta <code class="filename">schemas</code> de <span class="application">OpenLDAP</span>.
+                    </p><p>
+                        Tras ello registre los esquemas en <span class="application">OpenLDAP</span> editando su archivo de configuraci&oacute;n <code class="filename">slapd.conf</code>
+                        
+                        </p><pre class="programlisting">
+                            
+... otras entradas ...
+                            
+include		./schema/java.schema
+include		./schema/user.schema
+                            
+... otras entradas  ...
+                            
+                        </pre><p>
+                    </p><p>
+                        LDAP se usa para almacenar certificados aceptados para que la aplicaci&oacute;n puede conocer la ruta de validaci&oacute;n
+                        y el estado de revocaci&oacute;n.
+                    </p><p>
+                        Debe almacenarlo como sigue:
+                    </p><p>
+                        </p><div class="itemizedlist"><ul type="disc"><li><p>
+                                    Crear una <span class="emphasis"><em>organization (entityClass = o)</em></span> s&oacute;lo para agrupar certificados. 
+                                </p></li><li><p>
+                                    Almacene sus certificados en <span class="emphasis"><em>organizational units (entityClass = ou)</em></span> del tipo
+                                    <span class="emphasis"><em>pkiCA</em></span> y con un atributo binario llamado <span class="emphasis"><em>caCertificate</em></span>
+                                    cuyo valor sea el certificado.
+                                </p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Nota]" src="images/note.gif"></td><th align="left">Nota</th></tr><tr><td align="left" valign="top"><p>
+                                        Se recomienda, aunque no es obligado, respetar la jerarqu&iacute;a de certificados en una manera legible.
+                                    </p></td></tr></table></div><p>
+                                    Un ejemplo de entrada CA:
+                                    </p><div class="screenshot"><div align="center"><img src="images/ldap-ca.gif" align="middle"></div></div><p>
+                                </p></li><li><p>
+                                    Cada CA almacena informaci&oacute;n de revocaci&oacute;n. Dicha informaci&oacute;n incluye m&eacute;todos <span class="emphasis"><em>CRL</em></span>
+                                    y <span class="emphasis"><em>OCSP</em></span> de revocaci&oacute;n. Para cada CA varios m&eacute;todos se pueden configurar
+                                    dando a cada uno una prioridad. Para crl s&oacute;lo la url completa es necesaria. En  el caso de ocsp adem&aacute;s
+                                    el certificado debe ser incluido para poder validar la respuesta del servidor.
+                                </p><p>
+                                    Un ejemplo de entrada crl:
+                                    </p><div class="screenshot"><div align="center"><img src="images/ldap-crl.gif" align="middle"></div></div><p>
+                                </p><p>
+                                    Un ejemplo de entrada ocsp:
+                                    </p><div class="screenshot"><div align="center"><img src="images/ldap-ocsp.gif" align="middle"></div></div><p>
+                                </p></li></ul></div><p>
+                    </p></div><div class="sect3" lang="es"><div class="titlepage"><div><div><h4 class="title"><a name="d0e420"></a>Preparando el servidor de base de datos</h4></div></div></div><p>
+                        Debe crear un esquema de  base de datos para usar con <span class="application">Open-VA</span>.  En <code class="filename">resources</code>
+                        puede encontrar un gui&oacute;n <code class="filename">sql</code> con instrucciones para crear y llenar las tablas.
+                    </p><p>
+                        Hemos creado para usted dos guiones para los m&aacute;s populares servidores de base de datos: <span class="application">MySQL</span>
+                        y <span class="application">Oracle</span>.
+                    </p><p>
+                        En este gui&oacute;n se asume un esquema con nombre <span class="emphasis"><em>EPSILON</em></span>.
+                        Puede cambiarlo pero no olvide actualizar el gui&oacute;n.
+                    </p></div><div class="sect3" lang="es"><div class="titlepage"><div><div><h4 class="title"><a name="d0e447"></a>Preparando JBoss</h4></div></div></div><p>
+                        </p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Nota]" src="images/note.gif"></td><th align="left">Nota</th></tr><tr><td align="left" valign="top"><div class="itemizedlist"><ul type="disc"><li><p>
+                                        Deber&iacute;a definir la variable de entorno <code class="envar">JBOSS_HOME</code> con el valor del directorio de instalaci&oacute;n
+                                        de <span class="application">JBoss</span> si desea desplegar <span class="application">Open-VA</span> autom&aacute;ticamente.
+                                    </p></li><li><p>
+                                        Asumimos que usaremos el servidor default.
+                                    </p></li><li><p>
+                                        Copie los controladores o conectores para su servidor de base de datos (no suministrados)
+                                        en la carpeta <code class="filename">lib</code>
+                                    </p></li></ul></div></td></tr></table></div><p>
+                        </p><div class="caution" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Caution"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Atenci&oacute;n]" src="images/caution.gif"></td><th align="left">Atenci&oacute;n</th></tr><tr><td align="left" valign="top"><p>
+                                Necesita un archivo de certificado en formato <code class="filename">.pfx</code> o <code class="filename">.p12</code>,
+                                el cual no se incluye porque depende de su organizaci&oacute;n.
+                                Este archivo debe copiarse a la carpeta <code class="filename">conf</code> del servidor default de <span class="application">JBoss</span>.
+                            </p></td></tr></table></div><p>
+                    </p><p>
+                        En <code class="filename">resources</code> tiene varios arhivos que debe copiar en las carpetas de <span class="application">JBoss</span>.
+                        Antes de copiarlos debe editar algunas propiedades con sus propios valores:
+
+                        </p><div class="itemizedlist"><ul type="disc"><li><p>Archivos que deben ser copiados en la carpeta <code class="filename">conf</code></p><p>
+                                    </p><div class="itemizedlist"><ul type="circle"><li><p><code class="filename">KeyStoreConfiguration.properties</code></p><p>No se preocupe por &eacute;l</p></li><li><p><code class="filename">ValidationConfiguration.properties</code></p><p>No se preocupe por &eacute;l</p></li><li><p><code class="filename">LDAPLoginConfiguration.properties</code></p><p>
+                                                </p><div class="informaltable"><table border="1"><colgroup><col><col></colgroup><thead><tr><th>Nombre de propiedad</th><th>Descripci&oacute;n de la propiedad</th></tr></thead><tbody><tr><td>providerURL</td><td>La direcci&oacute;n de su servidor LDAP</td></tr><tr><td>principal</td><td>Un nombre de usuario con derechos de consulta en su servidor LDAP</td></tr><tr><td>credentials</td><td>La contrase&ntilde;a</td></tr></tbody></table></div><p>
+                                            </p></li><li><p><code class="filename">pkiva.webservices.properties</code></p><p>
+                                                </p><div class="informaltable"><table border="1"><colgroup><col><col></colgroup><thead><tr><th>Nombre de propiedad</th><th>Descripci&oacute;n de propiedad</th></tr></thead><tbody><tr><td>signature.ks</td><td>Su archivo <code class="filename">.pfx</code> o <code class="filename">.p12</code></td></tr><tr><td>signature.ks.password</td><td>Constrase&ntilde;a de su archivo de certificados</td></tr><tr><td>signature.alias.name</td><td>Nombre de usuario del certificado de firma de respuestas</td></tr><tr><td>signature.alias.password</td><td>Constrase&ntilde;a del usuario del certificado de firma de respuestas</td></tr></tbody></table></div><p>
+                                            </p></li></ul></div><p>
+                                </p></li><li><p>Archivos que deben copiarse en la carpeta <code class="filename">deploy</code></p><p>
+                                    </p><div class="itemizedlist"><ul type="circle"><li><p><code class="filename">open-VA-XXX-db-ds.xml</code></p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Nota]" src="images/note.gif"></td><th align="left">Nota</th></tr><tr><td align="left" valign="top"><p>
+                                                    Escoja XXX entre mysql u oracle, en funci&oacute;n de su servidor de base de datos. Si tiene otro
+                                                    servidor deber&aacute; crear su propio conector.
+                                                </p></td></tr></table></div><p>
+                                                Este archivo configura una <span class="emphasis"><em>fuente de datos (datasource)</em></span> para la base de datos a usar en
+                                                <span class="application">Open-VA</span>. Debe respetar la entrada <span class="emphasis"><em>JNDI name</em></span> (<span class="emphasis"><em>EPSILON</em></span>)
+                                                y editar la propiedad <span class="emphasis"><em>JDBC</em></span> con el valor correcto para su sistema.
+                                            </p></li><li><p><code class="filename">open-VA-crl_ra-ds.xml</code></p><p>No se preocupe por &eacute;l</p></li><li><p><code class="filename">open-VA-ldap_ra-ds.xml</code></p><p>No se preocupe por &eacute;l</p></li><li><p><code class="filename">open-VA-ocsp_ra-ds.xml</code></p><p>No se preocupe por &eacute;l</p></li></ul></div><p>
+                                </p></li></ul></div><p>
+                    </p></div></div><div class="sect2" lang="es"><div class="titlepage"><div><div><h3 class="title"><a name="d0e646"></a>Construyendo Open-VA</h3></div></div></div><p>
+                    Encontrar&aacute; un gui&oacute;n para construir <span class="application">Open-VA</span>.
+                    Su nombre es <code class="filename">build.cmd</code> para sistemas <span class="application">Windows</span>
+                    y <code class="filename">build.sh</code> para sistemas <span class="application">UNIX</span>.
+                </p><p>
+                    Tras ejecutar este gui&oacute;n <span class="application">Open-VA</span> estar&aacute; construida como una <span class="emphasis"><em>aplicaci&oacute;n JEE</em></span>
+                    con nombre <span class="application">open-VA.ear</span>.                    
+                </p></div><div class="sect2" lang="es"><div class="titlepage"><div><div><h3 class="title"><a name="d0e677"></a>Desplegando Open-VA</h3></div></div></div><p>
+                    Si el servidor <span class="application">JBoss</span> est&aacute; detenido, arr&aacute;nquelo.
+                </p><p>
+                    Si ha definido la variable de entorno <code class="envar">JBOSS_HOME</code> puede ejecutar <span><strong class="command">build deploy</strong></span>
+                    y <span class="application">Open-VA</span> ser&aacute; autom&aacute;ticamente desplegada.
+                    Si no ha definido esta variable de entorno deber&aacute; copiar manualmente el archivo <code class="filename">open-VA.ear</code>.
+                    que ha sido creado en la carpeta <code class="filename">dist</code> de su instalaci&oacute;n <span class="application">Open-VA</span>, a la
+                    carpeta <code class="filename">deploy</code> de <span class="application">JBoss</span>. Si est&aacute; usando <span class="emphasis"><em>default</em></span>
+                    ser&aacute;: <code class="filename">server/default/deploy</code>.
+                </p><p>
+                    Tras el despliegue puede comprobar en el log del servidor (<code class="filename">log/server.log)</code> que el archivo para la aplicaci&oacute;n
+                    <span class="application">Open-VA</span> (<code class="filename">open-VA.ear</code>) ha sido desplegado y arrancado.
+                </p></div><div class="sect2" lang="es"><div class="titlepage"><div><div><h3 class="title"><a name="d0e728"></a>Verificando Open-VA</h3></div></div></div><p>
+                    Despu&eacute;s de desplegar y arrancar <span class="application">Open-VA</span> puede verificar
+                    que la apliaci&oacute;n est&aacute; funcionando invocando su p&aacute;gina principal tal y como se muestra en la figura:
+                    </p><div class="screenshot"><div align="center"><img src="images/home.gif" align="middle"></div></div><p>
+                </p></div></div></div><div class="chapter" lang="es"><div class="titlepage"><div><div><h2 class="title"><a name="d0e739"></a>Cap&iacute;tulo 3. Usando Open-VA</h2></div></div></div><div class="toc"><p><b>Tabla de contenidos</b></p><dl><dt><span class="sect1"><a href="#d0e760">Comenzando</a></span></dt><dt><span class="sect1"><a href="#d0e819">Protocolo de operaciones Open-VA</a></span></dt></dl></div><p>
+            <span class="application">Open-VA</span> es un c&oacute;digo abierto que demuestra c&oacute;mo validar certificados digitales
+            y documentos firmados.
+        </p><p>
+            </p><div class="screenshot"><div align="center"><img src="images/diagram.gif" align="middle"></div></div><p>
+        </p><p>
+            Como puede ver en el diagrama anterior <span class="application">Open-VA</span> tiene un <span class="emphasis"><em>WebService</em></span>
+            como frontal. &Eacute;ste acepta peticiones, las procesa y devuelve una respuesta.
+        </p><div class="sect1" lang="es"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d0e760"></a>Comenzando</h2></div></div></div><p>
+                Debe construir un cliente <span class="emphasis"><em>webservice</em></span> para poder operar contra <span class="application">Open-VA</span>.
+                Para hacerlo necesita el descriptor de servicio (<span class="emphasis"><em>WSDL</em></span>).
+                No tiene porqu&eacute; escribirlo manualmente. Puede ser obtenido invocando <span><strong class="command">Open-VA/ValidateWS?wsdl</strong></span>
+                en el servidor.
+            </p><p>
+                En esta entrega de <span class="application">Open-VA</span> s&oacute;lo un m&eacute;todo est&aacute; disponible: <span><strong class="command">validate</strong></span>.
+            </p><p>
+                Esta operaci&oacute;n acepta un <span class="emphasis"><em>documento XML</em></span> conteniendo la petici&oacute;n y devuleve
+                otro <code class="filename">xml</code> con la respuesta.
+            </p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Nota]" src="images/note.gif"></td><th align="left">Nota</th></tr><tr><td align="left" valign="top"><p>
+                    Open-VA devuelve la respuesta firmada. Primero calcula la firma para la respuesta y luego a&ntilde;ade
+                    a la respuesta un nuevo campo con nombre <code class="varname">signature</code>.
+                </p></td></tr></table></div><p>
+                Los <code class="filename">dtd</code> para estos <code class="filename">xml</code> son:
+                </p><div class="itemizedlist"><ul type="disc"><li><p>petici&oacute;n</p><pre class="programlisting">
+                            
+&lt;!DOCTYPE request [&lt;!ELEMENT request (elementId,elementContent,?)&gt;
+&lt;!ELEMENT elementId (#PCDATA)&gt;
+&lt;!ELEMENT elementContent (certificate|signedDoc|(signature,doc))&gt;
+&lt;!ELEMENT certificate (#PCDATA)&gt;
+&lt;!ELEMENT signedDoc (#PCDATA)&gt;
+&lt;!ELEMENT signature (#PCDATA)&gt;
+&lt;!ELEMENT doc (#PCDATA)&gt;]&gt;
+                        
+                        </pre></li><li><p>respuesta</p><pre class="programlisting">
+                            
+&lt;!DOCTYPE response [
+&lt;!ELEMENT response (value, codeError?, status, statusReason?, signature)&gt;
+&lt;!ELEMENT value (#PCDATA)&gt;
+&lt;!ELEMENT codeError (#PCDATA)&gt;
+&lt;!ELEMENT status (#PCDATA)&gt;
+&lt;!ELEMENT statusReason (#PCDATA) ?&gt;
+&lt;!ELEMENT signature (#PCDATA)&gt;]&gt;
+                        
+                        </pre></li></ul></div><p>
+            </p></div><div class="sect1" lang="es"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d0e819"></a>Protocolo de operaciones Open-VA</h2></div></div></div><p>
+                Debe crear un <code class="filename">xml</code> en la petici&oacute;n y parsear la respuesta
+                tras invocar la operaci&oacute;n <span><strong class="command">validate</strong></span>, seg&uacute;n el <code class="filename">dtd</code>
+                en la secci&oacute;n anterior.
+                
+                </p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Nota]" src="images/note.gif"></td><th align="left">Nota</th></tr><tr><td align="left" valign="top"><p>
+                        Los datos binarios como certificados, firmas o documentos se pasan en formato 
+                        <span class="emphasis"><em>base 64</em></span>.
+                    </p></td></tr></table></div><p>
+                
+            </p><p>
+                Se soportan tres tipos de peticiones:
+                </p><div class="itemizedlist"><ul type="disc"><li><p>Validaci&oacute;n de certificados</p><p>Debe informar el campo <span><strong class="command">certficate</strong></span></p></li><li><p>Documentos firmados con firma no adjunta</p><p>Debe informar los campos <span><strong class="command">signature</strong></span> y <span><strong class="command">doc</strong></span></p></li><li><p>Documtos firmados con firma adjunta</p><p>Debe informar el campo <span><strong class="command">signedDoc</strong></span></p></li></ul></div><p>
+            </p><p>
+                La respuesta puede ser un poco confusa porque hay dos c&oacute;digos de respuesta.
+                </p><div class="itemizedlist"><ul type="disc"><li><p><code class="varname">value</code></p><p>Indica que el documento est&aacute; bien formado y puede ser procesado.</p><p>
+                            Sus valores pueden ser: <span class="emphasis"><em>Refused</em></span>, <span class="emphasis"><em>Failure</em></span> o <span class="emphasis"><em>Success</em></span>
+                        </p><p>
+                            Debe prestar atenci&oacute;n porque <span class="emphasis"><em>Success</em></span> no significa que la validaci&oacute;n es correcta.
+                            S&oacute;lo significa que la petici&oacute;n ha sido aceptada para ser procesada.
+                        </p><p>
+                            En el caso de <span class="emphasis"><em>Refused</em></span> o <span class="emphasis"><em>Failure</em></span> el campo
+                            <span class="emphasis"><em>codeError</em></span> da mayor informaci&oacute;n.
+                        </p></li><li><p><code class="varname">status</code></p><p>
+                            Sus valores pueden ser: <span class="emphasis"><em>Valid</em></span> o <span class="emphasis"><em>Invalid</em></span>
+                        </p><p>
+                            Un valor de <span class="emphasis"><em>Valid</em></span> indica que la validaci&oacute;n ha sido correcta.
+                        </p><p>
+                            En el caso de una validaci&oacute;n incorrecta el campo <span class="emphasis"><em>statusReason</em></span> da mayor informaci&oacute;n.
+                        </p></li></ul></div><p>
+                
+            </p></div></div></div></body></html>

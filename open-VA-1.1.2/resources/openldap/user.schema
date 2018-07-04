@@ -1,0 +1,65 @@
+attributeType ( 1.3.6.1.4.1.9933.256.100.1
+	NAME 'valuePair'  
+	SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 
+	 )
+
+attributeType ( 1.3.6.1.4.1.9933.256.100.2
+        NAME 'dpPriority'
+        SYNTAX 1.3.6.1.4.1.1466.115.121.1.27  
+         )
+
+attributeType ( 1.3.6.1.4.1.9933.256.100.3
+        NAME 'principal'
+        SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 
+         )
+
+attributeType ( 1.3.6.1.4.1.9933.256.100.4
+        NAME 'dpType'
+        SYNTAX 1.3.6.1.4.1.1466.115.121.1.15
+         )
+
+attributeType ( 1.3.6.1.4.1.9933.256.100.5
+        NAME 'dname'
+        SYNTAX 1.3.6.1.4.1.1466.115.121.1.15
+         )
+
+attributeType ( 1.3.6.1.4.1.9933.256.100.6
+        NAME 'authMech'
+        SYNTAX 1.3.6.1.4.1.1466.115.121.1.15
+         )
+
+attributeType ( 1.3.6.1.4.1.9933.256.100.7
+        NAME 'ksAlias'
+        SYNTAX 1.3.6.1.4.1.1466.115.121.1.15
+         )
+
+objectClass ( 1.3.6.1.4.1.9933.256.1
+	NAME 'pkiGroup' 
+	SUP groupofuniquenames 
+	STRUCTURAL MUST ( cn )
+	MAY ( seeAlso $ valuePair $ description $ o $ ou $ businesscategory $ owner )
+	 )
+objectClass ( 1.3.6.1.4.1.9933.256.2
+	NAME 'localTranslationTable' 
+	SUP organizationalrole 
+	STRUCTURAL MUST ( cn )
+	MAY ( seeAlso $ valuePair $ description $ o $ ou $ businesscategory $ owner )
+	 )
+
+objectclass ( 1.3.6.1.4.1.9933.256.3
+	NAME 'pkixDistributionPoint'
+        SUP top STRUCTURAL
+        MUST ( cn $ dpPriority ) )
+
+objectclass ( 1.3.6.1.4.1.9933.256.4
+        NAME 'pkixCRLDistributionPoint'
+        SUP pkixDistributionPoint STRUCTURAL
+	MUST ( cn $ dpPriority $ dpType )
+ 	MAY ( certificateRevocationList $ authorityRevocationList $
+         deltaRevocationList $ principal $ authMech ) )
+
+objectclass ( 1.3.6.1.4.1.9933.256.5
+        NAME 'pkixOCSPDistributionPoint'
+        SUP pkixDistributionPoint STRUCTURAL
+        MUST ( cn $ dpPriority )
+	MAY ( cACertificate $ ksAlias ) )

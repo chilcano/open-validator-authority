@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<connection-factories>
+    <no-tx-connection-factory>
+        <adapter-display-name>OCSPConnectionFactory</adapter-display-name>
+        <jndi-name>connectors/CertValidationChannels/ConnectionFactories/OCSP</jndi-name>
+        <rar-name>open-VA.ear#ocspra.rar</rar-name>
+        <connection-definition>pkiva.validation.ocsp.connectors.OCSPJBDirContextFactory</connection-definition>
+
+        <min-pool-size>5</min-pool-size>
+        <max-pool-size>300</max-pool-size>
+        <blocking-timeout-millis>29000</blocking-timeout-millis>
+        <idle-timeout-minutes>1</idle-timeout-minutes>
+    </no-tx-connection-factory>
+</connection-factories>

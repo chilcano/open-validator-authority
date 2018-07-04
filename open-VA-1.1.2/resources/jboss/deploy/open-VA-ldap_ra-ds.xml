@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<connection-factories>
+    <no-tx-connection-factory>
+        <adapter-display-name>LDAPConnectionFactory</adapter-display-name>
+        <jndi-name>connectors/LDAP/ConnectionFactories</jndi-name>
+        <rar-name>open-VA.ear#ldapra.rar</rar-name>
+        <connection-definition>pkiva.ldap.connectors.LDAPJBDirContextFactory</connection-definition>
+
+        <min-pool-size>1000</min-pool-size>
+        <max-pool-size>1500</max-pool-size>
+        <blocking-timeout-millis>29000</blocking-timeout-millis>
+        <idle-timeout-minutes>1</idle-timeout-minutes>
+    </no-tx-connection-factory>
+</connection-factories>

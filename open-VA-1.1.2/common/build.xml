@@ -1,0 +1,54 @@
+<!--
+	Script file for Common library generation
+	=========================================
+-->
+<project name="common" default="build" basedir=".">
+	
+	<!-- Project variables -->
+	<property name="src.dir" value="${basedir}/src"/>
+	<property name="lib.dir" value="${basedir}/lib"/>
+	<property name="bin.dir" value="${basedir}/bin"/>
+	<property name="dist.dir" value="${basedir}/dist"/>
+	
+	<path id="classpath">
+		<pathelement location="${src.dir}"/>
+		<fileset dir="${system.lib.dir}">
+			<include name="jboss-j2ee.jar"/>
+		</fileset>
+		<fileset dir="${lib.dir}">
+			<include name="*.jar"/>
+		</fileset>
+	</path>
+	
+	<!--
+		Common lib tasks
+	-->
+	<target name="prepare">
+		<mkdir dir="${bin.dir}"/>
+		<mkdir dir="${dist.dir}"/>
+	</target>
+		
+	<target name="clean">
+		<delete dir="${bin.dir}"/>
+		<delete dir="${dist.dir}"/>
+	</target>
+	
+	<target name="compile" depends="clean,prepare">
+		<javac
+			source="1.4"
+			debug="true"
+			srcdir="${src.dir}"
+			destdir="${bin.dir}"
+			includes="**/*.java"
+			classpathref="classpath"/>
+	</target>
+	
+	<target name="build" depends="clean,prepare,compile">
+		<jar destfile="${dist.dir}/common.jar">
+			<fileset dir="${bin.dir}">
+				<include name="**/*.*"/>
+			</fileset>
+		</jar>
+	</target>
+	
+</project>

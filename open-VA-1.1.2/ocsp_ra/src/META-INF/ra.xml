@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<connector xmlns="http://java.sun.com/xml/ns/j2ee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee
+                        http://java.sun.com/xml/ns/j2ee/connector_1_5.xsd" version="1.5">
+	<display-name>OCSPConnector</display-name>
+    <vendor-name>netfocus</vendor-name>
+    <eis-type>OCSP_RA</eis-type>
+    <resourceadapter-version>1.0</resourceadapter-version>
+
+    <resourceadapter>
+        <resourceadapter-class>org.jboss.resource.deployment.DummyResourceAdapter</resourceadapter-class>
+            <outbound-resourceadapter>
+            <connection-definition>
+                <managedconnectionfactory-class>pkiva.validation.ocsp.connectors.OCSPJBManagedConnectionFactory</managedconnectionfactory-class>
+                <connectionfactory-interface>pkiva.validation.ocsp.connectors.OCSPJBDirContextFactory </connectionfactory-interface>
+                <connectionfactory-impl-class>pkiva.validation.ocsp.connectors.OCSPJBDirContextFactoryImpl </connectionfactory-impl-class>
+                <connection-interface> pkiva.validation.ocsp.connectors.OCSPJBDirContext </connection-interface>
+                <connection-impl-class> pkiva.validation.ocsp.connectors.OCSPJBDirContextImpl </connection-impl-class>
+            </connection-definition>
+            <transaction-support>NoTransaction</transaction-support>
+            <reauthentication-support>true</reauthentication-support>
+        </outbound-resourceadapter>
+    </resourceadapter>
+</connector>

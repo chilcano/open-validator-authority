@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE ejb-jar PUBLIC '-//Sun Microsystems, Inc.//DTD Enterprise JavaBeans 2.0//EN' 'http://java.sun.com/dtd/ejb-jar_2_0.dtd'>
+
+
+<!-- Generated XML! -->
+
+<ejb-jar>
+  <display-name>VA-EJB</display-name>
+  <enterprise-beans>
+    <session>
+      <description><![CDATA[Certificate Validation EJB]]></description>
+      <display-name>CertificateValidator</display-name>
+      <ejb-name>CertificateValidator</ejb-name>
+        <home>pkiva.logic.CertificateValidatorHome</home>
+        <remote>pkiva.logic.CertificateValidator</remote>
+      <ejb-class>pkiva.logic.CertificateValidatorBean</ejb-class>
+      <session-type>Stateless</session-type>
+      <transaction-type>Container</transaction-type>
+    </session>
+    <session>
+      <description><![CDATA[Certificate Parser EJB]]></description>
+      <display-name>CertificateParser</display-name>
+      <ejb-name>CertificateParser</ejb-name>
+      <home>pkiva.logic.CertificateParserHome</home>
+      <remote>pkiva.logic.CertificateParser</remote>
+      <ejb-class>pkiva.logic.CertificateParserBean</ejb-class>
+      <session-type>Stateless</session-type>
+      <transaction-type>Container</transaction-type>
+    </session>
+    <session>
+      <description><![CDATA[Signature Verifier EJB]]></description>
+      <display-name>SignatureVerifier</display-name>
+      <ejb-name>SignatureVerifier</ejb-name>
+      <home>pkiva.logic.SignatureVerifierHome</home>
+      <remote>pkiva.logic.SignatureVerifier</remote>
+      <ejb-class>pkiva.logic.SignatureVerifierBean</ejb-class>
+      <session-type>Stateless</session-type>
+      <transaction-type>Container</transaction-type>
+    </session>
+    <session>
+      <description><![CDATA[Signer EJB]]></description>
+      <display-name>Signer</display-name>
+      <ejb-name>Signer</ejb-name>
+      <home>pkiva.logic.SignerHome</home>
+      <remote>pkiva.logic.Signer</remote>
+      <ejb-class>pkiva.logic.SignerBean</ejb-class>
+      <session-type>Stateless</session-type>
+      <transaction-type>Container</transaction-type>
+    </session>
+    <session>
+        <description><![CDATA[Facade Signature EJB]]></description>
+        <display-name>Signature</display-name>
+        <ejb-name>Signature</ejb-name>
+          <home>pkiva.logic.services.SignatureHome</home>
+          <remote>pkiva.logic.services.Signature</remote>
+          <local-home>pkiva.logic.services.SignatureLocalHome</local-home>
+          <local>pkiva.logic.services.SignatureLocal</local>
+        <ejb-class>pkiva.logic.services.SignatureBean</ejb-class>
+        <session-type>Stateless</session-type>
+        <transaction-type>Container</transaction-type>
+      </session>
+      <session>
+        <description><![CDATA[Facade Certificate EJB]]></description>
+        <display-name>Certificate</display-name>
+        <ejb-name>Certificate</ejb-name>
+          <home>pkiva.logic.services.CertificateHome</home>
+          <remote>pkiva.logic.services.Certificate</remote>
+          <local-home>pkiva.logic.services.CertificateLocalHome</local-home>
+          <local>pkiva.logic.services.CertificateLocal</local>
+        <ejb-class>pkiva.logic.services.CertificateBean</ejb-class>
+        <session-type>Stateless</session-type>
+        <transaction-type>Container</transaction-type>
+      </session>
+
+
+      <session>
+        <description><![CDATA[Facade Signature EJB Local]]></description>
+        <display-name>SignatureLocal</display-name>
+        <ejb-name>SignatureLocal</ejb-name>
+          <local-home>pkiva.logic.services.SignatureLocalHome</local-home>
+          <local>pkiva.logic.services.SignatureLocal</local>
+        <ejb-class>pkiva.logic.services.SignatureBean</ejb-class>
+        <session-type>Stateless</session-type>
+        <transaction-type>Container</transaction-type>
+      </session>
+      
+      <session>
+        <description><![CDATA[Facade Certificate EJB Local]]></description>
+        <display-name>CertificateLocal</display-name>
+        <ejb-name>CertificateLocal</ejb-name>
+          <local-home>pkiva.logic.services.CertificateLocalHome</local-home>
+          <local>pkiva.logic.services.CertificateLocal</local>
+        <ejb-class>pkiva.logic.services.CertificateBean</ejb-class>
+        <session-type>Stateless</session-type>
+        <transaction-type>Container</transaction-type>
+      </session>
+
+    </enterprise-beans>
+
+</ejb-jar>

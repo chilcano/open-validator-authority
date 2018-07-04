@@ -1,0 +1,70 @@
+<!--
+	Script file for VA WebServices generation
+	=========================================
+-->
+<project name="vaws" default="build" basedir=".">
+	
+	<!-- Project variables -->
+	<property name="src.dir" value="${basedir}/src"/>
+	<property name="websrc.dir" value="${basedir}/websrc"/>
+	<property name="lib.dir" value="${basedir}/lib"/>
+	<property name="bin.dir" value="${basedir}/bin"/>
+	<property name="dist.dir" value="${basedir}/dist"/>
+	
+	<path id="classpath">
+		<pathelement location="${src.dir}"/>
+		<fileset dir="${system.lib.dir}">
+			<include name="jboss-j2ee.jar"/>
+		</fileset>
+		<fileset dir="${common.dir}/dist">
+			<include name="common.jar"/>
+		</fileset>
+		<fileset dir="${common.dir}/lib">
+			<include name="*.jar"/>
+		</fileset>
+		<fileset dir="${vaejb.dir}/dist">
+			<include name="vaejb.jar"/>
+		</fileset>
+		<fileset dir="${lib.dir}">
+			<include name="*.jar"/>
+		</fileset>
+	</path>
+	
+			
+	<!--
+		VAEWS generation tasks
+	-->
+	<target name="prepare">
+		<mkdir dir="${bin.dir}"/>
+		<mkdir dir="${dist.dir}"/>
+	</target>
+		
+	<target name="clean">
+		<delete dir="${bin.dir}"/>
+		<delete dir="${dist.dir}"/>
+	</target>
+		
+	<target name="compile" depends="clean,prepare">
+		<javac
+			source="1.4"
+			debug="true"
+			srcdir="${src.dir}"
+			destdir="${bin.dir}"
+			includes="**/*.java"
+			classpathref="classpath"/>
+	</target>
+	
+	<target name="build" depends="clean,prepare,compile">
+		<war destfile="${dist.dir}/vaws.war" webxml="${websrc.dir}/WEB-INF/web.xml">
+			<fileset dir="${websrc.dir}/docroot"/>
+			<webinf dir="${websrc.dir}/WEB-INF"/>
+			<classes dir="${bin.dir}"/>
+			<manifest>
+				<attribute
+					name="Class-Path"
+					value="APP-INF/lib/bcmail-jdk14-127.jar APP-INF/lib/bcprov-jdk14-127.jar APP-INF/lib/log4j-1.2.8.jar"/>
+			</manifest>
+		</war>
+	</target>
+	
+</project>

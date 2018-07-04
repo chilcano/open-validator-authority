@@ -1,0 +1,83 @@
+<!--
+	Script file for VA EJB generation
+	=================================
+-->
+<project name="vaejb" default="build" basedir=".">
+	
+	<!-- Project variables -->
+	<property name="src.dir" value="${basedir}/src"/>
+	<property name="lib.dir" value="${basedir}/lib"/>
+	<property name="bin.dir" value="${basedir}/bin"/>
+	<property name="dist.dir" value="${basedir}/dist"/>
+	<property name="tmp.dir" value="${basedir}/tmp"/>
+	
+	<path id="classpath">
+		<pathelement location="${src.dir}"/>
+		<fileset dir="${system.lib.dir}">
+			<include name="jboss-j2ee.jar"/>
+		</fileset>
+		<fileset dir="${common.dir}/dist">
+			<include name="common.jar"/>
+		</fileset>
+		<fileset dir="${common.dir}/lib">
+			<include name="*.jar"/>
+		</fileset>
+		<fileset dir="${lib.dir}">
+			<include name="*.jar"/>
+		</fileset>
+	</path>
+			
+	<!--
+		VAEJB generation tasks
+	-->
+	<target name="prepare">
+		<mkdir dir="${bin.dir}"/>
+		<mkdir dir="${dist.dir}"/>
+	</target>
+		
+	<target name="clean">
+		<delete dir="${bin.dir}"/>
+		<delete dir="${dist.dir}"/>
+	</target>
+		
+	<target name="compile" depends="clean,prepare">
+		<javac
+			source="1.4"
+			debug="true"
+			srcdir="${src.dir}"
+			destdir="${bin.dir}"
+			includes="**/*.java"
+			classpathref="classpath"/>
+	</target>
+	
+	<target name="build" depends="clean,prepare,compile">
+		<mkdir dir="${tmp.dir}"/>
+		<mkdir dir="${tmp.dir}/lib"/>
+		<copy todir="${tmp.dir}">
+			<fileset dir="${bin.dir}">
+				<include name="**/*.*"/>
+			</fileset>
+		</copy>
+		<copy todir="${tmp.dir}/lib">
+			<fileset dir="${common.dir}/dist">
+				<include name="common.jar"/>
+			</fileset>
+			<fileset dir="${common.dir}/lib">
+				<include name="*.jar"/>
+			</fileset>
+			<fileset dir="${lib.dir}">
+				<include name="*.jar"/>
+			</fileset>
+		</copy>
+		<jar destfile="${dist.dir}/vaejb.jar" basedir="${tmp.dir}">
+			<metainf dir="${src.dir}/META-INF"/>
+			<manifest>
+				<attribute
+					name="Class-Path"
+					value="APP-INF/lib/commons-jxpath-1.1.jar APP-INF/lib/commons-logging.jar APP-INF/lib/log4j-1.2.8.jar"/>
+			</manifest>
+		</jar>
+		<delete dir="${tmp.dir}"/>
+	</target>
+	
+</project>

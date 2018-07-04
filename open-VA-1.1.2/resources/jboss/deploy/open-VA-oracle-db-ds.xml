@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ===================================================================== -->
+<!--                                                                       -->
+<!--  JBoss Server Configuration                                           -->
+<!--                                                                       -->
+<!-- ===================================================================== -->
+
+<!-- ==================================================================== -->
+<!--  Datasource config for Oracle originally from Steven Coy             -->
+<!-- ==================================================================== -->
+
+
+<datasources>
+  <no-tx-datasource>
+    <jndi-name>EpsilonDS</jndi-name>
+    <connection-url>jdbc:oracle:thin:@[Your server]:[Your database]</connection-url>
+    <user-name>[Your user name]</user-name>
+    <password>[Your user password]</password>
+    <driver-class>oracle.jdbc.driver.OracleDriver</driver-class>
+	<track-connection-by-tx>true</track-connection-by-tx> 
+
+	<valid-connection-checker-class-name>org.jboss.resource.adapter.jdbc.vendor.OracleValidConnectionChecker</valid-connection-checker-class-name>
+
+    <exception-sorter-class-name>org.jboss.resource.adapter.jdbc.vendor.OracleExceptionSorter</exception-sorter-class-name>
+
+
+   <min-pool-size>30</min-pool-size>
+   <max-pool-size>300</max-pool-size>
+   <blocking-timeout-millis>29000</blocking-timeout-millis>
+   <idle-timeout-minutes>1</idle-timeout-minutes>
+
+  </no-tx-datasource>
+
+</datasources>

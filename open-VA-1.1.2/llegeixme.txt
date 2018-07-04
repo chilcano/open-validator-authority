@@ -1,0 +1,6 @@
+open-VA
+=======
+
+- Dispossa d'un manual d'usuari en versions html i pdf en el
+directori docs.
+

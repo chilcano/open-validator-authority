@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<connection-factories>
+  <no-tx-connection-factory>
+    <adapter-display-name>CRLConnectionFactory</adapter-display-name>
+    <jndi-name>connectors/CertValidationChannels/ConnectionFactories/CRL</jndi-name>
+	<rar-name>open-VA.ear#crlra.rar</rar-name>
+	<connection-definition>pkiva.validation.connectors.CRLJBDirContextFactory</connection-definition>
+
+      <min-pool-size>50</min-pool-size>
+      <max-pool-size>300</max-pool-size>
+      <blocking-timeout-millis>29000</blocking-timeout-millis>
+      <idle-timeout-minutes>1</idle-timeout-minutes>
+  </no-tx-connection-factory>
+</connection-factories>
